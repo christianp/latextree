@@ -1,6 +1,6 @@
 # The `latextree` Package
 
-Creates a document oject model for LaTeX and provides some useful functions. The `LatexParser` methods understand the syntax of most common macros but is NOT a replacement for a full LaTeX engine. The parser shouldonly be invoked only after the input has been successfully compiled under LaTeX.The package assumes that 
+Creates a document oject model for LaTeX and provides some useful functions. The parser understands the syntax of most common macros but is NOT a replacement for a full LaTeX engine. The parser should only be invoked only after the input has been successfully compiled under LaTeX.
 
 Example:
 ```python
