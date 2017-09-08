@@ -39,11 +39,15 @@ These need the attention of a software engineer.
 
 ---
 ## `make_website`
+```python
+>>> doc.make_website(copy_static=True, copy_figures=True, WEB_ROOT=None)
+```
 
+By default, the website is created in a folder called `web-latexsourcefilename` in the directory containing the main latex source file. For example, if the main latex source file is called `main.tex` the folder will be called `web-main`. The output directory can be changed by setting the WEB_ROOT variable.
+
+* html files are written to WEB_ROOT (default is the latex root directory)
 * style files are copied to WEB_ROOT/static/css. Tthese can be modified post-production.
 * figures are copied to WEB_ROOT/static/img
-* LATEX_ROOT is the directory containing the main latex file.
-* html files are written to WEB_ROOT (default is the latex root directory)
 * urls are constructed from chapter and/or section numbers (if any)
 
 ### Templates
