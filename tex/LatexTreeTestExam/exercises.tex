@@ -1,0 +1,88 @@
+% !TEX root = main.tex
+
+\chapter{Exercises}\label{ch:exercises}
+
+% exercise: single question
+The following exercise has only a single question.
+\begin{exercise}
+Evaluate the integral \(\displaystyle\int x^2 e^{2x}\,dx\).
+\begin{answer}
+We evaluate using \textbf{integration by parts}:
+\begin{align}
+ \int x^2 e^{2x}\,dx 
+ 	&    = \tfrac12 x^2 e^{2x} - \int x e^{2x}\,dx \quad
+         \text{$u=x^2$, $dv=e^{2x}\,dx$}\\
+	& = \tfrac12 x^2 e^{2x} -
+           \Bigl[\tfrac12 x e^{2x}-\int \tfrac12 e^{2x}\,dx\Bigr] \quad
+           \text{integration by parts}\\
+	& = \tfrac12 x^2 e^{2x} - \tfrac12 x e^{2x} + \tfrac12\int e^{2x}\,dx \quad
+           \text{$u=x^2$, $dv=e^{2x}\,dx$}\\
+	& = \tfrac12 x^2 e^{2x} - \tfrac12 x e^{2x} + \tfrac14 e^{2x} \quad
+           \text{integration by parts}\\ 
+	& = \tfrac14(2x^2-2x+1)e^{2x} && \quad
+           \text{simplify!}
+\end{align}
+\end{answer}
+\end{exercise}
+
+% exercise: list of questions
+The following exercise contains a list of questions.
+\begin{exercise}\label{ex:newton}
+Suppose a particle is moving along the $x$-axis, and that its position
+at any time $t$ is given by $x=t^2 - 5t + 1$.
+\begin{questions}
+\question
+Find the velocity of the particle at time $t$.
+\begin{answer}
+Velocity is the rate of change of position with respect to time:
+\[
+                    v = \frac{dx}{dt}.
+\]
+For our problem, we have
+\[
+        v = \frac{dx}{dt} =\frac d{dt}(t^2 - 5t + 1) = 2t-5.
+\]
+The velocity at time $t$ is given by $\boxed{v=2t-5}$.
+\end{answer}
+\question
+Find the acceleration of the particle at time $t$.
+\begin{answer}
+Acceleration is the rate of change of velocity with respect to time:
+\[
+a = \frac{dv}{dt}.
+\]
+For our problem, we have
+\[
+a = \frac{dv}{dt} =\frac d{dt}(2t-5)=2.
+\]
+The acceleration at time $t$ is constant: $\boxed{a=2}$.
+\end{answer}
+\end{questions}
+\end{exercise}
+
+% another exercise
+Here is another exercise.
+\begin{exercise}
+Simplify each of the following complex expressions.
+\begin{questions}
+\question $i^2$
+\begin{answer}
+$i^2 = -1$
+\end{answer}
+\question $i^3$
+\begin{answer}
+$i^3 = i i^2 = -i$
+\end{answer}
+\question $z+\bar z$
+\begin{answer}
+$z+\bar z=\operatorname{Re} z$
+\end{answer}
+\question $1/z$
+\begin{answer}
+$\displaystyle\frac{1}{z}=\frac {1}{z}\frac{\bar z}{\bar z}=\frac{z}{z\bar z}=\frac{z}{|z|^2}$
+\end{answer}
+\end{questions}
+\end{exercise}
+
+\endinput
+

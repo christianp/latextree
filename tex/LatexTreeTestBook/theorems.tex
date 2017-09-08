@@ -1,0 +1,51 @@
+% !TEX root = main.tex
+
+\chapter{Theorems}
+
+\begin{theorem}
+If $a$ and $b$ are odd numbers, then $ab$ is an odd number.
+\begin{proof}
+Let $a$ and $b$ be odd numbers. Then by definition there exist integers $c$ and $d$ such that 
+\[
+a=2c+1 \quad\text{and}\quad b=2d+1.
+\]
+
+It is easy to show that $ab = 2(2cd + c + d) + 1$, and because $2cd+c+d$ is an integer we conclude that $ab$ is odd.
+\end{proof}
+\end{theorem}
+
+\begin{theorem}
+$\sqrt{2}$ is irrational.
+\begin{proof}
+Suppose to the contrary that $\sqrt{2}$ is rational. Let us write $\sqrt{2} = a/b$ where $a$ and $b$ are integers, and assume that the fraction is written in its simplest terms.
+Then we have $2b^2 = a^2$ which implies that $a^2$ is even.
+\par
+By the previous theorem, if $a$ is odd then $a^2$ is also odd, so it must be that $a$ is even. Let us write this as $a=2c$ for some integer $c$. Then
+\[
+2b^2 = a^2 = (2c)^2 = 4c^2, \text{ so } b^2 = 2c^2.
+\]
+As above we conclude that $b$ must also be even, i.e.\ $b = 2d$ for some integer $d$.
+\par
+We assumed however that the fraction $a/b$ was in its simplest form, but we have shown that this is not the case, because
+\[
+\sqrt{2} = a/b = (2c)/(2d) = c/d.
+\]
+This is a contradiction, so we conclude that $\sqrt{2}$ is irrational.
+\end{proof}
+\end{theorem}
+
+
+\begin{theorem}
+There are infinitely many prime numbers.
+\begin{proof}
+Assume the contrary statement: suppose that there are only finitely many prime numbers. Call them $p_1,p_2\ldots,p_n$.
+Then the number $p = p_1p_2\ldots p_n + 1$ is bigger than all of $p_1,p_2,\ldots,p_n$ and so cannot be prime.
+\par
+If we divide $p$ by any of the $p_j$ we get remainder $1$, so $p$ must be divisible by some non-prime number, say $b$.
+By the Fundamental Theorem of Arithmetic, every integer greater than $1$ is either prime or the product of prime numbers.
+\par
+Consequently there must be a prime number $p_j$ that divides $b$, and which therefore divides $p$.
+This is a contradiction, so our original assumption must be false.
+Thus we conclude that there are infinitely many prime numbers.
+\end{proof}
+\end{theorem}

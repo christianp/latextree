@@ -1,0 +1,207 @@
+<html>
+
+    <head>
+		
+		<link rel="shortcut icon" href="static/img/camel_logo.png" />
+		
+                <link rel="stylesheet" type="text/css" href="static/css/latex2web.css"/>
+
+
+	
+
+<!-- load mathjax config **before** MathJax.js -->
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+    	extensions: ["tex2jax.js"],
+    	jax: ["input/TeX", "output/HTML-CSS"],
+    	tex2jax: {
+      	  	inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      	  	displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      	  	processEscapes: true
+    	},
+    	TeX: {
+			equationNumbers: { 
+				autoNumber: "AMS",
+				formatNumber: function (n) { return n }
+			},
+			Macros: {
+				RR: "{\\bf R}",
+				pounds: '{\\unicode{xA3}}',
+			}
+    },
+    "HTML-CSS": {
+		availableFonts: ["TeX"],
+		linebreaks: { 
+			automatic: true, 
+			width: "container"
+		}
+	 }
+  });
+</script>
+
+<!--script src="static/Mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+	
+
+<script type="text/javascript" 
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+</script>
+
+<script type="text/javascript" src="static/js/showhide.js"></script>
+ 
+		<title>Test Book for the LatexTree Package</title>
+   
+     </head>
+	
+<body>
+	<div class="macros">
+			\(\renewcommand{\thetheorem}{\arabic{chapter}.\arabic{theorem}}\)
+			\(\renewcommand{\emph}[1]{\textbf{#1}}\)
+			\(\newcommand{\N}{\mathbb{N}}\)
+			\(\newcommand{\Z}{\mathbb{Z}}\)
+			\(\newcommand{\R}{\mathbb{R}}\)
+			\(\newcommand{\C}{\mathbb{C}}\)
+			\(\newcommand{\prob}{\mathbb{P}}\)
+			\(\newcommand{\expe}{\mathbb{E}}\)
+			\(\newcommand{\var}{\text{Var}}\)
+			\(\newcommand{\cov}{\text{Cov}}\)
+			\(\newcommand{\includevideo{}}[2]{[}\)
+			\(\renewcommand{\arraystretch}{1.3}\)
+	</div>
+	
+<div id="container" style="min-height:500px;">
+
+	<div id="institution">
+	
+	</div>
+	<div id="breadcrumbs">
+	    <a href="index.html">Test Book for the LatexTree Package</a>
+
+&gt;<a href="ch08sec00.html"><span class="chapter_title", id="ch:links">
+Links	</span></a>	</div>
+	<div id="columnwrap">
+		
+		<div id="content-main">
+	
+
+				<h1>8.&nbsp;<span class="chapter_title", id="ch:links">
+Links	</span></h1>
+<br/>Here is a labelled theorem containing a labelled equation.
+<div class="theorem", id="thm:pythagoras">
+<div class="blockheading"> 
+    Theorem&nbsp;8.1&nbsp;<span class="blocktitle">Pythagoras' Theorem</span></div><div class="unlisted"><div class="title">Pythagoras' Theorem</div></div><div class="equation">
+       \begin{equation}\label{eq:pythagoras}
+a^2 + b^2 = c^2.
+\end{equation}
+    </div></div><br/><div class="unlisted"><div class="comment"></div></div><div class="unlisted"><div class="comment"></div></div><div class="unlisted"><div class="comment"></div></div><div class="unlisted"><div class="comment"></div></div><div class="unlisted"><div class="comment"></div></div><div class="unlisted"><div class="comment"></div></div><br/><div class="unlisted"><div class="comment"></div></div><ul class="itemize">
+            
+<li class="item">Chapter&nbsp;<a href="ch01sec00.html#ch:levels">1</a> is the levels chapter.</li>
+<li class="item">Chapter&nbsp;<a href="ch08sec00.html#ch:links">8</a> involves a reference to the current chapter.</li>
+<li class="item">Theorem&nbsp;<a href="ch08sec00.html#thm:pythagoras">8.1</a> involves a reference to the previous theorem.</li>
+<li class="item">Here is a ref -<a href="ch01sec00.html#ch:levels">1</a>- to the levels chapter.</li>
+<li class="item">Here is a ref -<a href="ch08sec00.html#ch:links">8</a>- to the current chapter.</li>
+<li class="item">Here is a ref -<a href="ch08sec00.html#thm:pythagoras">8.1</a>- to the above theorem.</li>
+<li class="item">Here is an eqref -		<span class="eqref">\eqref{eq:pythagoras}</span>
+- to the equation in the above theorem.</li>
+<li class="item">Here is a citation -<a href="ch00sec00.html#grimmett01">(Grimmett & Stirzaker, 2001)</a>- to a bibtex entry.</li>
+<li class="item">Here is a url: -<a href="http://www.bbc.co.uk/">http://www.bbc.co.uk/</a>-.</li>
+<li class="item">Here is some -<a href="http://www.bbc.co.uk/">hyperlinked text</a>-.</li>
+<li class="item">Here is a -- to the introduction.</li>
+<li class="item">here is an autoref -<a href="ch01sec00.html#ch:levels">Chapter&nbsp;1</a>- to the levels chapter.</li>
+<li class="item">Here is a nameref -<a href="ch01sec00.html#ch:levels"><span class="chapter_title", id="ch:levels">
+Levels and Headings	</span></a>- to the levels chapter.</li>
+<li class="item">Here is a pageref -<a href="ch01sec00.html#ch:levels">1</a>- to the levels chapter.</li>
+        </ul><br/>		<h3 class="subsection">Document-level labels</h3>
+
+For a viewable links to the document-level label we need to use the <span class="texttt">hyperref</span> command as follows: --. There is no number or title associated with the document-level so other xref commands don't know what to display. Document-level labels might be useful to organise documents within and across modules.<br/><div class="unlisted"><div class="endinput"></div></div><br/>
+<div class="unlisted"><div class="comment"></div></div><br/><div class="unlisted"><div class="nocite">*</div></div><div class="unlisted"><div class="bibliographystyle">plain</div></div><br/>
+			
+
+        	<br/>
+        	<br/>
+			<div id="browse-horizontal">
+<p class="left">
+        <a href="ch07sec00.html">
+            &larr;&nbsp;
+7.<span class="chapter_title">
+Images and Video	</span>        </a>
+</p>
+<p class="right">
+        <a href="bibliography.html">						Bibliography            &nbsp;&rarr;
+        </a>
+</p>
+<div style="clear: both;"></div>        	</div>
+
+    	
+		</div>
+
+    	<div id="content-related", class="sidebar">
+	<h2 style="text-align:center;"><a href="index.html">Test Book for the LatexTree Package</a></h2>
+		<h3>Chapters</h3>
+   
+			<p>
+				<a href="ch01sec00.html">
+				1.&nbsp;
+<span class="chapter_title", id="ch:levels">
+Levels and Headings	</span>				</a>
+			</p>
+   
+			<p>
+				<a href="ch02sec00.html">
+				2.&nbsp;
+<span class="chapter_title">
+Lists	</span>				</a>
+			</p>
+   
+			<p>
+				<a href="ch03sec00.html">
+				3.&nbsp;
+<span class="chapter_title">
+Mathematics	</span>				</a>
+			</p>
+   
+			<p>
+				<a href="ch04sec00.html">
+				4.&nbsp;
+<span class="chapter_title">
+Theorems	</span>				</a>
+			</p>
+   
+			<p>
+				<a href="ch05sec00.html">
+				5.&nbsp;
+<span class="chapter_title">
+Text Processing	</span>				</a>
+			</p>
+   
+			<p>
+				<a href="ch06sec00.html">
+				6.&nbsp;
+<span class="chapter_title">
+Tables	</span>				</a>
+			</p>
+   
+			<p>
+				<a href="ch07sec00.html">
+				7.&nbsp;
+<span class="chapter_title">
+Images and Video	</span>				</a>
+			</p>
+   
+			<p>
+				8.&nbsp;
+<span class="chapter_title", id="ch:links">
+Links	</span>			</p>
+		<p><a href="bibliography.html">
+			Bibliography
+		</a></p>
+        </div>
+    </div>
+
+    <div id="footer">
+        Generated by LatexTree (Cardiff University 2017)
+    </div>
+</div>
+
+</body>
+</html>

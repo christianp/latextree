@@ -1,0 +1,7 @@
+{%- for child in node.children  -%}
+    {%- if child.get_species() in "text|latex" or child.get_genus() == "dispmath" -%}
+		{{ child.content | safe | trim }}    
+	{%- endif -%}
+{%- endfor -%}
+
+

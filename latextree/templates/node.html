@@ -1,0 +1,172 @@
+{%- if node.get_species() == "latex" -%} {{ node.content | safe }}
+
+{%- elif node.get_species() == "text" -%}{{ node.content | replace('~', '&nbsp;') | safe }}
+
+{%- elif node.get_species() == "image" -%}
+    <img style="width:{% if node.width %}{{ node.width }}{% else %}40{% endif %}%;" src="{{ image_files[node] }}"{% if node.parent.label %} id="{{ node.parent.label }}"{% endif %}/>
+
+{%- elif node.get_species() == "media" -%}
+	<iframe width="{% if node.width %}{{ node.width }}{% else %}40{% endif %}%" src="{{ node.content }}" allowfullscreen></iframe>
+
+{%- elif node.get_genus() == "accent" -%}{{ node.content | safe }}
+
+{%- elif node.get_species() == "break" -%}
+    <br/>
+
+{%- elif node.get_species() == "space" -%}
+    &nbsp;
+
+{%- elif node.get_genus() == "dispmath" -%}
+    <div class="{{ node.get_species() }}">
+       {{ node.content }}
+    </div>
+
+{%- elif node.get_genus() in ["xref", "href"] -%}
+	{% include "refcite.html" %}
+
+{%- elif node.get_genus() == "level" -%}
+    <div class="{{ node.get_species() }}" {%- if node.label -%}, id="{{ node.label }}"{%- endif -%}>
+    {{ loop(node.children) }}
+    </div>
+
+{%- elif node.get_genus() == "heading" -%}
+	{% if node.get_species() == "chapterstar" %}
+		<h1 class="chapter">{{ loop(node.children) | trim }}</h1>
+	{% elif node.get_species() == "sectionstar" %}
+		<h2 class="section">{{ loop(node.children) | trim }}</h2>
+	{% elif node.get_species() == "subsectionstar" %}
+		<h3 class="subsection">{{ loop(node.children) | trim }}</h3>
+	{% endif %}
+
+{%- elif node.get_genus() == "list" -%}
+
+    {%- if node.get_species() == "bibliography" -%}       
+		{%- if doc.preamble['documentclass'] == "article" -%}
+            <h2 class="section">References</h2>
+        {%- else -%}
+            <h1 class="chapter">Bibliography</h1>
+        {%- endif -%}
+        <ul class="bibliography">
+            {{ loop(node.children) }}
+        </ul>
+
+    {%- elif node.get_species() == "itemize" -%}
+        <ul class="{{ node.get_species() }}">
+            {{ loop(node.children) }}
+        </ul>
+
+    {%- else -%}
+        <ol class="{{ node.get_species() }}">
+            {{ loop(node.children) }}
+        </ol>
+
+    {%- endif -%}
+
+{%- elif node.get_genus() == "item" %}
+
+	{# switch for answers=True needed here #}
+	{%- if node.get_species() in ["correct", "incorrect"] -%}
+        <li class="choice">{{ loop(node.children) | trim }}</li>
+
+    {%- elif node.get_species() == "bibitem" -%}
+        <li class="bibitem", id="{{ node.label }}">
+            {%- set harvard = node.harvard_dict() -%}
+            {%- if harvard.author -%} {{ harvard.author }} {%- endif -%}
+            {%- if harvard.year -%} ({{ harvard.year }}) {%- endif -%} 
+            {%- if harvard.title -%} <it>{{ harvard.title }}</it>. {%- endif -%}
+            {%- if harvard.publisher -%} {{ harvard.publisher }}. {%- endif -%}
+            {%- if harvard.isbn -%} <span style="white-space:nowrap;">ISBN:{{ harvard.isbn }}.</span> {%- endif -%}
+        </li>
+    
+	{%- else -%}
+        <li class="{{ node.get_species() }}">{{ loop(node.children) | trim }}</li>
+    
+	{%- endif -%}
+
+{%- elif node.get_species() == "subfigure" -%}
+    <span class="{{ node.get_species() }}"{%- if node.label -%}, id="{{ node.label }}" {%- endif -%}>
+        {%- for child in node.children recursive -%}
+            {%- with node = child -%}
+                {%- include "node.html" -%}
+            {%- endwith -%}
+        {%- endfor -%}
+		{%- set title = node.get_title_node() -%}	
+	    {% if title %}
+
+			
+			<span class="caption">
+			    {%- if node.number  -%}({{ node.number }})&nbsp;{%- endif -%}
+				{%- for child in title.children recursive -%}
+					{%- with node = child -%}{% include "node.html" %}{%- endwith -%}
+				{%- endfor -%}
+			</span>
+			
+			
+	    {% endif %}
+	</span>
+
+{%- elif node.get_genus() in ["theorem", "task", "float"] -%}
+    <div class="{{ node.get_species() }}"{%- if node.label -%}, id="{{ node.label }}" {%- endif -%}>
+		{% include "block_heading.html" %}
+        {%- for child in node.children recursive -%}
+            {%- with node = child -%}
+                {%- include "node.html" -%}
+            {%- endwith -%}
+        {%- endfor -%}
+	</div>
+
+{%- elif node.get_genus() == "hidden" and node.get_species() != "answer" -%}
+    <div class="{{ node.get_species() }}">
+		<div class="showhide">
+			<p class="hidebox_title">{{ node.get_species() | title }}</p>
+			<div class="inner_hidebox">
+				{{ loop(node.children) }}
+			</div>
+		</div>
+	</div> 
+
+{%- elif node.get_genus() == "pre" -%}
+	{% if node.get_family() == "environment" %}
+		<div class="tex2jax_ignore">
+			<pre class="{{ node.get_species() }}">{{ node.content | trim }}</pre>
+		</div>
+	{% endif %}
+	{% if node.get_family() == "macro" %}
+		<span class="{{ node.get_species() }}">{{ node.content | trim }}</span>
+	{% endif %}
+
+{%- elif node.get_species() == "abstract" -%}
+	<div class="{{ node.get_species() }}">
+		<h2>{{ node.get_species() | title }}</h2>
+		{{ loop(node.children) }}
+	</div>
+
+{%- elif node.get_genus() == "box" -%} 
+    <div class="{{ node.get_species() }}">
+       {{ loop(node.children) | trim }}
+    </div>
+
+{%- elif node.get_genus() == "style" -%} 
+    <span class="{{ node.get_species() }}">{{ loop(node.children) | trim }}</span>
+
+
+{%- elif node.get_species() == "tabular" -%}
+    <table class="{{ node.get_species() }}">				
+            {{ loop(node.children) }}
+	</table>
+
+{%- elif node.get_species() == "row" -%}
+    <tr{% if node.content %} class="{{ node.content }}"{% endif %}>				
+        {{ loop(node.children) }}
+	</tr>
+
+{%- elif node.get_species() == "cell" -%}
+    <td{% if node.content %} class="{{ node.content }}"{% endif %}>				
+        {{ loop(node.children) }}
+	</td>
+
+{# unlisted elements #}
+{%- else -%}
+    <div class="unlisted"><div class="{{ node.get_species() }}">{{ loop(node.children) }}</div></div>
+
+{%- endif -%}

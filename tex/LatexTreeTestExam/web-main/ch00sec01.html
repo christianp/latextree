@@ -1,0 +1,357 @@
+<html>
+
+    <head>
+		
+		<link rel="shortcut icon" href="static/img/camel_logo.png" />
+		
+                <link rel="stylesheet" type="text/css" href="static/css/latex2web.css"/>
+
+
+	
+
+<!-- load mathjax config **before** MathJax.js -->
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+    	extensions: ["tex2jax.js"],
+    	jax: ["input/TeX", "output/HTML-CSS"],
+    	tex2jax: {
+      	  	inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      	  	displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      	  	processEscapes: true
+    	},
+    	TeX: {
+			equationNumbers: { 
+				autoNumber: "AMS",
+				formatNumber: function (n) { return n }
+			},
+			Macros: {
+				RR: "{\\bf R}",
+				pounds: '{\\unicode{xA3}}',
+			}
+    },
+    "HTML-CSS": {
+		availableFonts: ["TeX"],
+		linebreaks: { 
+			automatic: true, 
+			width: "container"
+		}
+	 }
+  });
+</script>
+
+<!--script src="static/Mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+	
+
+<script type="text/javascript" 
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+</script>
+
+<script type="text/javascript" src="static/js/showhide.js"></script>
+ 
+		<title>Test Exam for the LatexTree Package</title>
+   
+     </head>
+	
+<body>
+	<div class="macros">
+			\(\newcommand{\N}{\mathbb{N}}\)
+			\(\newcommand{\Z}{\mathbb{Z}}\)
+			\(\newcommand{\R}{\mathbb{R}}\)
+			\(\newcommand{\C}{\mathbb{C}}\)
+			\(\newcommand{\prob}{\mathbb{P}}\)
+			\(\newcommand{\expe}{\mathbb{E}}\)
+			\(\newcommand{\supp}{\text{supp}}\)
+			\(\newcommand{\var}{\text{Var}}\)
+			\(\newcommand{\cov}{\text{Cov}}\)
+			\(\renewcommand{\questionshook}{\addtolength{\itemsep}{3ex}}\)
+			\(\renewcommand{\labelenumi}{(\alph{enumi})}\)
+			\(\renewcommand{\subpartlabel}{(\thesubpart)}\)
+			\(\newcommand{\bigsquare}{\raisebox{0.5ex}{\fbox{\phantom{\rule{0.5ex}{0.5ex}}}}}\)
+			\(\newcommand{\correct}{\correctchoice}\)
+			\(\newcommand{\incorrect}{\choice}\)
+			\(\newcommand{\responsetitle}{\noindent\textbf{Response:}\enspace}\)
+			\(\newcommand{\resp{}}[1]{\ifprintanswers\qquad\fbox{\responsetitle\normalfont #1}\fi}\)
+			\(\renewcommand{\resp}[1]{}\)
+			\(\newcommand{\answertitle}{\noindent\textbf{Answer:}\enspace}\)
+	</div>
+	
+<div id="container" style="min-height:500px;">
+
+	<div id="institution">
+	
+	</div>
+	<div id="breadcrumbs">
+		    <a href="index.html">Test Exam for the LatexTree Package</a>
+
+
+&gt;<a href="ch00sec01.html"><span class="section_title">
+Exercises	</span></a>	</div>
+	<div id="columnwrap">
+		
+		<div id="content-main">
+		
+<h2>
+1&nbsp;<span class="section_title">
+Exercises	</span></h2>
+Here is an exercise. Solutions are placed in <span class="tt">solution</span> environments which are built-in to <span class="tt">exam.cls</span>. These are displayed by <span class="tt">LatexTree</span> in expandable divs.<br/><div class="exercise">
+<div class="blockheading"> 
+    Exercise&nbsp;1&nbsp;</div><ol class="questions">
+            <br/>
+<li class="question">Let $\Omega$ be the sample space of some random experiment and let $\prob$ be a probability measure on subsets of $\Omega$.<br/><ol class="parts">
+            <br/>
+<li class="part">Define the term <span class="emph">sample space</span>. 
+<div class="solution">
+		<div class="showhide">
+			<p class="hidebox_title">Solution</p>
+			<div class="inner_hidebox">
+				
+The sample space of a random experiments is the set of all possible outcomes. When the experiment is performed, exactly one outcome will occur.
+
+			</div>
+		</div>
+	</div><br/></li>
+<li class="part">Define the term <span class="emph">probability measure</span>.
+<div class="solution">
+		<div class="showhide">
+			<p class="hidebox_title">Solution</p>
+			<div class="inner_hidebox">
+				
+A probability measure is a function on subsets of $\Omega$ such that $\prob(\emptyset)=0$, $\prob(\Omega)=1$ and for any sequence of pairwise disjoint events $A_1,A_2,\ldots$<div class="displaymath">
+       \[\prob\left(\bigcup_{n=1}^{\infty}A_n\right)=\sum_{n=1}^{\infty}\prob(A_n) \qquad\text{(countable additivity).}\]
+    </div>
+			</div>
+		</div>
+	</div><br/></li>
+<li class="part">Let  $A_1\subseteq A_2\subseteq\ldots$ be an increasing sequence of events. Show that
+<div class="displaymath">
+       \[\prob\left(\bigcup_{n=1}^{\infty} A_n\right) = \lim_{n\to\infty}\prob(A_n).
+\]
+    </div><div class="solution">
+		<div class="showhide">
+			<p class="hidebox_title">Solution</p>
+			<div class="inner_hidebox">
+				
+The event $A=\cup_{n=1}^{\infty} A_n$ can be written as a disjoint union,
+<div class="displaymath">
+       \[
+A  = A_1 \cup (A_2\setminus A_1) \cup (A_3\setminus A_2) \cup\ldots\]
+    </div>
+By additivity,
+<div class="displaymath">
+       \[\prob(A) = \prob(A_1) + \prob(A_2\setminus A_1) + \prob(A_3\setminus A_2) + \ldots\]
+    </div>
+and because $A_n\subseteq A_{n+1}$,
+<div class="displaymath">
+       \[\prob(A_{n+1}\setminus A_n)=\prob(A_{n+1})-\prob(A_n).
+\]
+    </div>
+Hence
+<div class="align*">
+       \begin{align*}\prob(A)		& = \prob(A_1) + \big[\prob(A_2) - \prob(A_1)\big] + \big[\prob(A_3) - \prob(A_2)\big] + \ldots\\
+		& = \lim_{n\to\infty}\prob(A_n)
+\end{align*}
+    </div>
+			</div>
+		</div>
+	</div><br/></li>
+<li class="part">A fair coin is tossed repeatedly. Show that a head eventually occurs with probability one.
+<div class="solution">
+		<div class="showhide">
+			<p class="hidebox_title">Solution</p>
+			<div class="inner_hidebox">
+				
+Let $A_n$ be the event that a head occurs during the first $n$ tosses, and let $A$ be the event that a head eventually occurs. Then $A_1\subset A_2\subset A_3,\ldots$ is an increasing sequence with 
+<div class="displaymath">
+       \[
+A=\bigcup_{n=1}^{\infty} A_n.
+\]
+    </div>
+If we assume that the tosses are independent, 
+<div class="displaymath">
+       \[\prob(A_n) = 1 - \prob(\text{no heads in the first $n$ tosses}) = 1 - (1/2)^n.
+\]
+    </div>
+By the continuity property of probability measures,
+<div class="displaymath">
+       \[\prob(A) 
+	= \prob\left(\bigcup_{n=1}^{\infty}A_n\right)
+	= \lim_{n\to\infty}\prob(A_n)
+	= \lim_{n\to\infty}\left(1 - \frac{1}{2^n}\right) = 1.
+\]
+    </div>
+			</div>
+		</div>
+	</div></li>
+        </ol><br/></li>
+<li class="question"><ol class="parts">
+            <br/>
+<li class="part">If $X$ and $Y$ are simple random variables, show that 
+<div class="displaymath">
+       \[\expe(aX+bY)=a\expe(X)+b\expe(Y)\quad\text{ for all $a,b\in\R$.}\]
+    </div><div class="solution">
+		<div class="showhide">
+			<p class="hidebox_title">Solution</p>
+			<div class="inner_hidebox">
+				
+See lecture notes.
+
+			</div>
+		</div>
+	</div><br/></li>
+<li class="part">Let $X$ be a random variable with the following cumulative distribution function (CDF), 
+<div class="displaymath">
+       \[
+F(x) = \begin{cases}
+	1 - \left(\theta/x\right)^{\alpha}	& \text{ for $x\geq\theta$,}\\
+	0						& \text{ otherwise,}\end{cases}\]
+    </div>
+where $\alpha>0$ and $\theta>0$ are the parameters of the distribution.
+<ol class="subparts">
+            
+<li class="subpart">Show that $\expe(X)$ is infinite when $\alpha\leq 1$.
+<div class="solution">
+		<div class="showhide">
+			<p class="hidebox_title">Solution</p>
+			<div class="inner_hidebox">
+				
+The PDF is $f(x) = \alpha\theta^{\alpha}/x^{\alpha+1}$ for $x>\theta$ (and zero otherwise), so
+<div class="displaymath">
+       \[\expe(X) = \int_{-\infty}^{\infty}xf(x)\,dx = \alpha\theta^{\alpha}\int_{\theta}^{\infty}\frac{1}{x^{\alpha}}\,dx.
+\]
+    </div>
+This integral converges if and only if $\alpha > 1$.
+
+			</div>
+		</div>
+	</div></li>
+<li class="subpart">Find $\var(X)$ when $\alpha > 2$.
+<div class="solution">
+		<div class="showhide">
+			<p class="hidebox_title">Solution</p>
+			<div class="inner_hidebox">
+				<div class="align*">
+       \begin{align*}\expe(X) 
+	& = \alpha\theta^{\alpha}\int_{\theta}^{\infty}\frac{1}{x^{\alpha}}\,dx 
+	= \alpha\theta^{\alpha}\left[\frac{-1}{(\alpha-1)x^{\alpha-1}}\right]_{\theta}^{\infty} 
+	= \frac{\alpha\theta}{\alpha-1}. \\\expe(X^2) 
+	& = \alpha\theta^{\alpha}\int_{\theta}^{\infty}\frac{1}{x^{\alpha-1}}\,dx 
+	= \alpha\theta^{\alpha}\left[\frac{-1}{(\alpha-2)x^{\alpha-2}}\right]_{\theta}^{\infty}
+	= \frac{\alpha\theta^2}{\alpha-2}. \\\var(X)
+	& = \expe(X^2) - \expe(X)^2 
+	= \frac{\alpha\theta^2}{(\alpha-1)^2(\alpha-2)}.
+\end{align*}
+    </div>
+			</div>
+		</div>
+	</div></li>
+        </ol></li>
+        </ol><br/></li>
+        </ol></div><br/>Here is another exercise, this time with points for each question (not yet implemented in <span class="tt">LatexTree</span>).
+<div class="exercise">
+<div class="blockheading"> 
+    Exercise&nbsp;2&nbsp;</div><ol class="questions">
+            <br/>
+<li class="question">Let $X\sim\text{Exponential}(\lambda)$ where $\lambda>0$ is a rate parameter. Find the CDF of the random variable $Y=e^X$.
+<div class="solution">
+		<div class="showhide">
+			<p class="hidebox_title">Solution</p>
+			<div class="inner_hidebox">
+				<ul class="itemize">
+            
+<li class="item">$g(x)=e^x$ is one-to-one and increasing over $[0,\infty)$</li>
+<li class="item">The inverse transformation is $g^{-1}(y) = \log y$.</li>
+<li class="item">$\supp(f_X)=[0,\infty)$ so $\supp(f_Y)=[1,\infty)$.</li>
+        </ul>
+Because $g$ is increasing, for $y\geq 1$ we have
+<div class="displaymath">
+       \[
+F_Y(y) = F_X\big[g^{-1}(y)\big] = 1 - e^{-\lambda\log y} = 1 - 1/y^{\lambda}\]
+    </div>
+and zero otherwise.
+
+			</div>
+		</div>
+	</div><br/></li>
+<li class="question">Let $X$ be a continuous random variable and let $F(x)$ denote its cumulative distribution function (CDF). If the inverse function $F^{-1}$ exists for all $x\in\R$, show that the random variable $U=F(X)$ is uniformly distributed on $[0,1]$.
+<div class="solution">
+		<div class="showhide">
+			<p class="hidebox_title">Solution</p>
+			<div class="inner_hidebox">
+				
+Since $F(x)=\prob(X\leq x)$ is a CDF, we have that $F(x)\in [0,1]$ for all $x\in\R$.
+In particular, $\prob(U<0)=0$ and $\prob(U>1)=0$.
+<br/>
+For $u\in[0,1]$, because the inverse $F^{-1}$ exists, we have 
+<div class="align*">
+       \begin{align*}\prob(U\leq u) 
+	& = \prob\big(F(X)\leq u\big) \\
+	& = \prob\big(X\leq F^{-1}(u)\big) \\
+	& = F\big(F^{-1}(u)\big) \\
+	& = u
+\end{align*}
+    </div>
+which is the CDF of the uniform distribution on $[0,1]$.
+
+			</div>
+		</div>
+	</div><br/></li>
+<li class="question">Given a pseudo-random number from the $\text{Uniform}[0,1]$ distribution, show how this can be converted into a pseudo-random number from the $\text{Rayleigh}(\sigma)$ distribution, whose CDF is given by
+<div class="displaymath">
+       \[
+F(x) = \begin{cases}
+	1 - e^{-x^2/2\sigma^2}	&\text{for $x\geq 0$,}\\
+	0						& \text{ otherwise,}\end{cases}\]
+    </div>
+where $\sigma>0$ is a parameter of the distribution.
+<div class="solution">
+		<div class="showhide">
+			<p class="hidebox_title">Solution</p>
+			<div class="inner_hidebox">
+				
+Let $X\sim\text{Rayleigh}(\sigma)$. To invert the CDF let $u=1-e^{-x^2/2\sigma^2}$. Then $x^2 = -2\sigma^2\log(1-u)$, and because $X$ takes only non-negative values,
+<div class="displaymath">
+       \[
+F^{-1}(u) = -\sigma\sqrt{2}\log(1-u)
+\]
+    </div>
+Applying this to a pseudo-random number $u$ from the $\text{Uniform}[0,1]$ distribution yields a pseudo-random number from the $\text{Rayleigh}(\sigma)$ distribution.
+
+			</div>
+		</div>
+	</div><br/></li>
+        </ol></div><br/>
+        	<br/>
+        	<br/>
+			<div id="browse-horizontal">
+<p class="left">
+</p>
+<p class="right">
+        <a href="ch00sec02.html">2.<span class="section_title">
+Quizzes	</span>            &nbsp;&rarr;
+        </a>
+</p>
+<div style="clear: both;"></div>        	</div>
+
+    	
+		</div>
+
+    	<div id="content-related", class="sidebar">
+	<h2 style="text-align:center;"><a href="index.html">Test Exam for the LatexTree Package</a></h2>
+		<h3>Sections</h3>
+		<p><a href="ch00sec01.html">
+1.<span class="section_title">
+Exercises	</span>			</a></p>
+		<p><a href="ch00sec02.html">
+2.<span class="section_title">
+Quizzes	</span>			</a></p>
+        </div>
+    </div>
+
+    <div id="footer">
+        Generated by LatexTree (Cardiff University 2017)
+    </div>
+</div>
+
+</body>
+</html>

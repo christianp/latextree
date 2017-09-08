@@ -1,0 +1,58 @@
+{% extends "chapter_detail.html" %}
+
+{% block breadcrumbs %}
+	{{ super() }}
+	{% if section %}&gt;<a href="{{ page_urls[section] }}">{% with title = section.get_title_node() %}{% include "title.html" %}{% endwith %}</a>{% endif %}
+{% endblock %}
+
+{% block content_main %}
+		
+	{#% if chapter %}
+		<h1>
+			{{ chapter.number }}.&nbsp;
+			{% with title = chapter.get_title_node() %}
+				{% include "title.html" %}
+			{% endwith %}
+		</h1>
+	{% endif %#}
+
+	{%- if section.children -%}
+		
+		{%- for node in section.children recursive -%}
+		
+			{%- if node.get_species() == "title" -%}
+				<h2>
+					{% if chapter %}{{ chapter.number }}.{% endif %}{{ section.number }}&nbsp;
+					{%- with title = node -%}
+						{%- include "title.html" -%}
+					{%- endwith -%}
+				</h2>
+		
+			{%- elif node.get_species() == "subsection" -%}			
+				<h3>
+					{% if chapter %}{{ chapter.number }}.{% endif %}{{ section.number }}.{{ node.number }}&nbsp;
+					{%- with title = node.get_title_node() -%}
+						{%- include "title.html" -%}
+					{%- endwith -%}
+				</h3>
+				{%- for child in node.children recursive -%}
+					{%- with node = child -%}
+						{%- include "node.html" -%}
+					{%- endwith -%}
+				{%- endfor -%}
+		
+			{%- else -%}
+				{%- include "node.html" -%}
+		
+			{%- endif -%}
+		
+		{%- endfor -%}
+	{%- endif -%}
+	
+
+{% endblock %}
+
+{% block browse_horizontal %}
+	{% include "browse_horizontal.html" %}
+{% endblock %}
+

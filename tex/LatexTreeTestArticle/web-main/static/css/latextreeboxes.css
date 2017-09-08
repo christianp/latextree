@@ -1,0 +1,76 @@
+/* latextree.css for camel project */
+
+
+/*#breadcrumbs {
+    border:1px solid #000;
+}
+*/
+
+.textbf, .textit, .texttt, .textsl, .textsc, .underline {
+    border:1px solid #000;
+}
+
+.text, .maths {
+    border:1px solid #000;
+}
+
+.example, .exercise, .quiz {
+    border:1px solid #000;
+}
+
+.proof, .solution, .answer, .hint {
+    border:1px solid #000;
+}
+
+.editbox, .answerbox, .previewbox,  {
+    border:1px solid #000;
+}
+
+p.answerbuttons {
+    border:1px solid #000;
+}
+
+.inner_step {
+    border:1px solid #000;
+}
+
+table.tabular td {
+    border:1px solid #000;
+    padding:5px;
+}
+table.exercises td {
+    border:1px solid #000;
+}
+table.exercises {
+    border:1px solid #000;
+}
+.tabular {
+    border:1px solid #000;
+    padding:3px;
+}
+
+/* theorems and tasks */
+.definition, .lemma, .theorem, .corollary, .remark, .example {
+    /* border:1px solid #000; */
+/*    padding:3px;*/
+}
+.exercise, .quiz, .questions, .question, .answerbox {
+    /* border:1px solid #000; */
+/*    padding:3px;
+*/}
+	
+.proof, .solution, .answer, .hint {
+    /* border:1px solid #000; */
+    padding:1px;
+    padding-left:5px;
+}
+
+.figure {
+/*    border:1px solid #000;*/
+    padding:3px;
+}
+
+ul.bibliography {
+    list-style-type: none;
+}
+

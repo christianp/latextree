@@ -1,0 +1,166 @@
+<html>
+
+    <head>
+		
+		<link rel="shortcut icon" href="static/img/camel_logo.png" />
+		
+                <link rel="stylesheet" type="text/css" href="static/css/latex2web.css"/>
+
+
+	
+
+<!-- load mathjax config **before** MathJax.js -->
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+    	extensions: ["tex2jax.js"],
+    	jax: ["input/TeX", "output/HTML-CSS"],
+    	tex2jax: {
+      	  	inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      	  	displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      	  	processEscapes: true
+    	},
+    	TeX: {
+			equationNumbers: { 
+				autoNumber: "AMS",
+				formatNumber: function (n) { return n }
+			},
+			Macros: {
+				RR: "{\\bf R}",
+				pounds: '{\\unicode{xA3}}',
+			}
+    },
+    "HTML-CSS": {
+		availableFonts: ["TeX"],
+		linebreaks: { 
+			automatic: true, 
+			width: "container"
+		}
+	 }
+  });
+</script>
+
+<!--script src="static/Mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+	
+
+<script type="text/javascript" 
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+</script>
+
+<script type="text/javascript" src="static/js/showhide.js"></script>
+ 
+		<title>Test Exam for the LatexTree Package</title>
+   
+     </head>
+	
+<body>
+	<div class="macros">
+			\(\newcommand{\N}{\mathbb{N}}\)
+			\(\newcommand{\Z}{\mathbb{Z}}\)
+			\(\newcommand{\R}{\mathbb{R}}\)
+			\(\newcommand{\C}{\mathbb{C}}\)
+			\(\newcommand{\prob}{\mathbb{P}}\)
+			\(\newcommand{\expe}{\mathbb{E}}\)
+			\(\newcommand{\supp}{\text{supp}}\)
+			\(\newcommand{\var}{\text{Var}}\)
+			\(\newcommand{\cov}{\text{Cov}}\)
+			\(\renewcommand{\questionshook}{\addtolength{\itemsep}{3ex}}\)
+			\(\renewcommand{\labelenumi}{(\alph{enumi})}\)
+			\(\renewcommand{\subpartlabel}{(\thesubpart)}\)
+			\(\newcommand{\bigsquare}{\raisebox{0.5ex}{\fbox{\phantom{\rule{0.5ex}{0.5ex}}}}}\)
+			\(\newcommand{\correct}{\correctchoice}\)
+			\(\newcommand{\incorrect}{\choice}\)
+			\(\newcommand{\responsetitle}{\noindent\textbf{Response:}\enspace}\)
+			\(\newcommand{\resp{}}[1]{\ifprintanswers\qquad\fbox{\responsetitle\normalfont #1}\fi}\)
+			\(\renewcommand{\resp}[1]{}\)
+			\(\newcommand{\answertitle}{\noindent\textbf{Answer:}\enspace}\)
+	</div>
+	
+<div id="container" style="min-height:500px;">
+
+	<div id="institution">
+	
+	</div>
+	<div id="breadcrumbs">
+		    <a href="index.html">Test Exam for the LatexTree Package</a>
+
+
+&gt;<a href="ch00sec02.html"><span class="section_title">
+Quizzes	</span></a>	</div>
+	<div id="columnwrap">
+		
+		<div id="content-main">
+		
+<h2>
+2&nbsp;<span class="section_title">
+Quizzes	</span></h2><br/><span class="tt">exam.cls</span> implements multiple choice questions via the <span class="texttt">choices</span> environment and multiple answer questions via the <span class="texttt">checkboxes</span> environment. Here we put solutions in an <span class="tt">answers</span> environment, which are not displayed by <span class="tt">LatexTree</span>.<br/><div class="quiz", id="quiz:frivolous">
+<div class="blockheading"> 
+    Quiz&nbsp;3&nbsp;</div><ol class="questions">
+            <br/>
+<li class="question">True or false. Necessity is the mother of invention.
+<ol class="choices">
+            
+<li class="choice">True</li>
+<li class="choice">False</li>
+        </ol><br/></li>
+<li class="question">In what year did Columbus first cross the Atlantic?
+<ol class="choices">
+            
+<li class="choice">1490</li>
+<li class="choice">1491</li>
+<li class="choice">1492</li>
+<li class="choice">1493</li>
+        </ol><br/></li>
+<li class="question">Which of the following were members of the Beatles?  
+<ol class="checkboxes">
+            
+<li class="choice">John</li>
+<li class="choice">Paul</li>
+<li class="choice">George</li>
+<li class="choice">Bingo</li>
+        </ol><br/></li>
+<li class="question">Which of the following series are convergent?
+<ol class="checkboxes">
+            
+<li class="choice">$\sum_{n=1}^{\infty}\frac{1}{\sqrt{n}}$</li>
+<li class="choice">$\sum_{n=1}^{\infty}\frac{1}{n}$</li>
+<li class="choice">$\sum_{n=1}^{\infty}\frac{1}{n^2}$</li>
+<li class="choice">$\sum_{n=1}^{\infty}\frac{1}{n^3}$</li>
+        </ol></li>
+        </ol></div><br/>
+
+        	<br/>
+        	<br/>
+			<div id="browse-horizontal">
+<p class="left">
+        <a href="ch00sec01.html">
+            &larr;&nbsp;
+1.<span class="section_title">
+Exercises	</span>        </a>
+</p>
+<p class="right">
+</p>
+<div style="clear: both;"></div>        	</div>
+
+    	
+		</div>
+
+    	<div id="content-related", class="sidebar">
+	<h2 style="text-align:center;"><a href="index.html">Test Exam for the LatexTree Package</a></h2>
+		<h3>Sections</h3>
+		<p><a href="ch00sec01.html">
+1.<span class="section_title">
+Exercises	</span>			</a></p>
+		<p><a href="ch00sec02.html">
+2.<span class="section_title">
+Quizzes	</span>			</a></p>
+        </div>
+    </div>
+
+    <div id="footer">
+        Generated by LatexTree (Cardiff University 2017)
+    </div>
+</div>
+
+</body>
+</html>

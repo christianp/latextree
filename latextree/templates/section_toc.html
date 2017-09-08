@@ -1,0 +1,10 @@
+{% if subsections %}
+	{% for subsec in subsections %}
+		<p><a href="{{ page_urls[subsec] }}">
+			{{ subsec.parent.parent.number }}.{{ subsec.parent.number }}.{{ sec.number }}
+			{% with title = subsec.get_title_node() %}
+				{% include "title.html" %}
+			{% endwith %}
+		</a></p>
+	{% endfor %}
+{% endif %}

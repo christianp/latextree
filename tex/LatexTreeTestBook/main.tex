@@ -1,0 +1,102 @@
+%------------------------------------------------
+% main.tex - Test file for LatexTree package
+%------------------------------------------------
+\documentclass[oneside, 11pt]{book}
+
+% document info
+\title{Test Book for the LatexTree Package}
+\author{D Evans}
+\date{June 2017}
+
+% standard packages
+\usepackage{amsmath,amsfonts,amsthm}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{caption}
+\usepackage{fancyhdr}
+
+% package parameters
+\geometry{margin=20mm, a4paper}
+\graphicspath{{figures/}}
+
+% theorem definitions
+\newtheoremstyle{cumaths}{}{}{\upshape}{}{\bfseries}{~}{\newline}{}
+\theoremstyle{cumaths}
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{remark}[theorem]{Remark}
+\renewcommand{\thetheorem}{\arabic{chapter}.\arabic{theorem}}
+
+% new normalmode commands
+\renewcommand{\emph}[1]{\textbf{#1}}
+
+% new mathmode commands
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\prob}{\mathbb{P}}
+\newcommand{\expe}{\mathbb{E}}
+\newcommand{\var}{\text{Var}}
+\newcommand{\cov}{\text{Cov}}
+\DeclareMathOperator*{\argmin}{\arg\!\min}
+\DeclareMathOperator*{\argmax}{\arg\!\max}
+
+% TeX aliases (these are expanded by latextree prior to parsing).
+\def\it{\item}
+\def\bit{\begin{itemize}}
+\def\eit{\end{itemize}} 
+\def\ben{\begin{enumerate}}
+\def\een{\end{enumerate}}
+
+% videos
+\newcommand{\includevideo}[2][1]{\url{#2}}
+\usepackage{newfloat}
+\usepackage{caption}
+\DeclareFloatingEnvironment[placement={!ht},name=Video]{video}
+\captionsetup[video]{labelfont=normalfont}
+
+% tweaks
+\setlength{\parindent}{0ex}
+\setlength{\parskip}{1ex}
+\renewcommand{\arraystretch}{1.3}
+\addtolength{\tabcolsep}{2ex}
+
+% hyperref (always load last)
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, linkcolor=blue}
+
+%----------------------------------------
+\begin{document}\label{book:latextreetest}
+\maketitle
+\tableofcontents
+\newpage
+
+\pagestyle{plain}
+\chapter*{Preface}
+This is a test document for the {\tt LatexTree} package. 
+
+\pagestyle{fancy}
+\input{levels}
+\input{lists}
+\input{mathematics}
+\input{theorems}
+\input{textprocessing}
+\input{tables}
+\input{images}
+\input{links}
+%\input{pictures}
+
+\nocite{*}
+\bibliographystyle{plain}
+\bibliography{references}
+
+\end{document}
+%----------------------------------------
+
+

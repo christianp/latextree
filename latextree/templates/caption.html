@@ -1,0 +1,14 @@
+{% if title.parent.get_node_class() == "level" -%}
+   	<span class="{{ title.parent.species() }}_title"{%- if title.parent.label -%}, id="{{ title.parent.label }}"{%- endif -%}>
+	{% set ch = title.get_enclosing_chapter() %}
+	{% set se = title.get_enclosing_section() %}
+	{#% if se %}{% if ch %}{{ ch.number }}.{% endif %}{{ se.number }}{% endif %#}
+	{% for child in title.children recursive %}
+		{% with node = child %}{% include "node.html" %}{% endwith %}
+	{% endfor %}
+	</span>
+{%- else -%}
+	{%- for child in title.children recursive -%}
+		{%- with node = child -%}{%- include "node.html" -%}{%- endwith -%}
+	{%- endfor -%}
+{%- endif -%}

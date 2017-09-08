@@ -1,0 +1,51 @@
+<p class="left">
+    {% if prv %}
+        <a href="{{ page_urls[prv] }}">
+            &larr;&nbsp;
+            {# &#9665;&nbsp; #}
+            {# &#9668;&nbsp; #}
+			{%- set ch = prv.get_enclosing_chapter() -%}
+			{%- set se = prv.get_enclosing_section() -%}
+			{%- if ch -%}
+				{{ ch.number }}.{%- if se -%}{{ se.number }}{% endif %}
+			{%- else -%}
+				{%- if se -%}{{ se.number }}.{% endif %}
+			{%- endif -%}
+            {% if prv.title %}
+				{% with title = prv.get_title_node() %}
+					{% include "title.html" %}
+				{% endwith %}
+			{% endif %}
+        </a>
+    {% endif %}
+</p>
+<p class="right">
+    {% if nxt %}
+        <a href="{{ page_urls[nxt] }}">
+			{%- set ch = nxt.get_enclosing_chapter() -%}
+			{%- set se = nxt.get_enclosing_section() -%}
+			{%- if ch -%}
+				{{ ch.number }}.{%- if se -%}{{ se.number }}{% endif %}
+			{%- else -%}
+				{%- if se -%}{{ se.number }}.{% endif %}
+			{%- endif -%}
+            {% if nxt.title %}
+				{% with title = nxt.get_title_node() %}
+					{% include "title.html" %}
+				{% endwith %}
+			{% else %}
+				{% if nxt.get_species() == "bibliography" %}
+					{%- if doc.preamble["documentclass"] == 'article' %}
+						References
+					{%- else %}
+						Bibliography
+					{%- endif -%}
+				{% endif %}
+			{% endif %}
+            &nbsp;&rarr;
+            {# &nbsp;&#9655; #}
+            {# &nbsp;&#9658; #}
+        </a>
+    {% endif %}
+</p>
+<div style="clear: both;"></div>

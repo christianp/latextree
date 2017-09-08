@@ -1,0 +1,410 @@
+%------------------------------------------------
+% main.tex - Test file for LatexTree package
+%------------------------------------------------
+\documentclass[12pt]{exam}
+
+% uncomment to print solutions
+\printanswers
+
+% document info
+\title{Test Exam for the LatexTree Package}
+\author{D Evans}
+\date{Summer 2017}
+
+% ams packages
+\usepackage{amsmath,amsfonts,amssymb}
+
+% layout
+\usepackage{geometry}
+\geometry{paperwidth=210mm, paperheight=297mm	}
+\geometry{left=25mm,right=40mm,top=30mm,bottom=30mm}
+\setlength{\parindent}{0ex}
+\setlength{\parskip}{3ex}
+
+% new mathmode commands
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\prob}{\mathbb{P}}
+\newcommand{\expe}{\mathbb{E}}
+\newcommand{\supp}{\text{supp}}
+\newcommand{\var}{\text{Var}}
+\newcommand{\cov}{\text{Cov}}
+\DeclareMathOperator*{\argmin}{\arg\!\min}
+\DeclareMathOperator*{\argmax}{\arg\!\max}
+
+% TeX aliases (these are expanded by latextree prior to parsing).
+\def\it{\item}
+\def\bit{\begin{itemize}}
+\def\eit{\end{itemize}} 
+\def\ben{\begin{enumerate}}
+\def\een{\end{enumerate}}
+
+% exam.cls options
+\bracketedpoints
+\pointsinrightmargin
+\pointsdroppedatright
+\addpoints
+	
+% exam.cls tweaks
+\renewcommand{\questionshook}{\addtolength{\itemsep}{3ex}}
+\renewcommand{\labelenumi}{(\alph{enumi})}
+\renewcommand{\subpartlabel}{(\thesubpart)}
+\cfoot{\thepage}
+
+% tweak choices and checkboxes environments
+\CorrectChoiceEmphasis{\bfseries}
+\newcommand{\bigsquare}{\raisebox{0.5ex}{\fbox{\phantom{\rule{0.5ex}{0.5ex}}}}}
+\checkboxchar{$\bigsquare$}
+\checkedchar{$\text{\rlap{\,\!$\checkmark$}}\bigsquare$}
+
+% exam.cls aliases
+\newcommand{\correct}{\correctchoice}
+\newcommand{\incorrect}{\choice}
+
+% macro/environment to record responses to choices
+\newcommand{\responsetitle}{\noindent\textbf{Response:}\enspace}
+\newcommand{\resp}[1]{\ifprintanswers\qquad\fbox{\responsetitle\normalfont #1}\fi}
+\usepackage{environ}
+\usepackage{mdframed}
+\NewEnviron{response}{%
+	\ifprintanswers
+		\begin{mdframed}[roundcorner=5pt]
+		\responsetitle
+        \BODY%
+		\end{mdframed}
+    \fi
+}{}
+% These are only useful for interactive environments - let's kill them!
+\renewcommand{\resp}[1]{}
+\RenewEnviron{response}{}{}
+
+% Define answers environment
+% This mimics the built-in "solution" environment
+% By default, LatexTree includes solutions (in expandable divs) but excludes answers.
+\newcommand{\answertitle}{\noindent\textbf{Answer:}\enspace}
+\NewEnviron{answer}{%
+	\ifprintanswers
+		\begin{mdframed}[roundcorner=5pt]
+		\answertitle
+        \BODY%
+		\end{mdframed}
+    \fi
+}{}
+
+	
+% watermark solutions version
+\AtBeginDocument{
+\ifprintanswers
+	\usepackage{draftwatermark}
+	\SetWatermarkLightness{0.9}
+	\SetWatermarkText{SOLUTIONS}
+	\SetWatermarkAngle{60}
+	\SetWatermarkScale{5}
+	\rfoot{}{}
+\fi
+}
+
+% define exercise and quiz environments
+% amsthm does not produce a newline if the first line is the start of a list.
+% We  must either put a space (\ ) after \begin{theorem}, or use ntheorem instead.
+%\usepackage{amsthm}
+%\newtheoremstyle{cumaths}{}{}{\upshape}{}{\bfseries}{~}{\newline}{}
+%\theoremstyle{cumaths}
+\usepackage[hyperref,thmmarks,amsmath]{ntheorem}
+\theoremstyle{break}
+\setlength\theorempreskipamount{3ex}
+\setlength\theorempostskipamount{2ex}
+\theorembodyfont{\upshape}
+\qedsymbol{\rule{1ex}{1ex}}
+\newtheorem{exercise}{Exercise}
+\newtheorem{quiz}[exercise]{Quiz}
+
+%----------------------------------------
+\begin{document}\label{exam:latextreetest}
+\maketitle
+
+We define two new theorem types: {\tt exercises} and {\tt quizzes}. 
+
+Note that {\tt exam.cls} is sub-classed from the basic {\tt article} class, so it's not possible to have chapters. This is annoying but the package author claims to have good reasons for doing so (something to do with counters). 
+
+%{\tt exam.cls} can apparently be hacked as follows
+%\scriptsize
+%\bit
+%\it Change \verb+\LoadClass{article}+ to \verb+\LoadClass{book}+
+%\it Change \verb+\edef\@queslabel{question@\arabic{question}}+ to 
+%\it[]\verb+\edef\@queslabel{question@\arabic{chapter}@\arabic{section}@\arabic{subsection}@\arabic{question}}+
+%\it Change \verb+\edef\@partlabel{part@\arabic{question}@\arabic{partno}}+ to 
+%\it[] \verb+\edef\@partlabel{part@\arabic{chapter}@\arabic{section}@\arabic{subsection}@\arabic{question}@\arabic{partno}}+
+%\eit
+%\normalsize
+
+%==============================
+\section{Exercises}
+%==============================
+Here is an exercise. Solutions are placed in {\tt solution} environments which are built-in to {\tt exam.cls}. These are displayed by {\tt LatexTree} in expandable divs.
+
+\begin{exercise}
+\begin{questions}
+
+% Q1. PROBABILITY SPACES 
+\question 
+Let $\Omega$ be the sample space of some random experiment and let $\prob$ be a probability measure on subsets of $\Omega$.
+
+\begin{parts}
+
+%--------------------
+\part %
+Define the term \emph{sample space}. 
+\begin{solution}
+The sample space of a random experiments is the set of all possible outcomes. When the experiment is performed, exactly one outcome will occur.
+\end{solution}
+
+%--------------------
+\part
+Define the term \emph{probability measure}.
+\begin{solution}
+A probability measure is a function on subsets of $\Omega$ such that $\prob(\emptyset)=0$, $\prob(\Omega)=1$ and for any sequence of pairwise disjoint events $A_1,A_2,\ldots$ 
+\[
+\prob\left(\bigcup_{n=1}^{\infty}A_n\right)=\sum_{n=1}^{\infty}\prob(A_n) \qquad\text{(countable additivity).}
+\]
+\end{solution}
+
+%--------------------
+\part
+Let  $A_1\subseteq A_2\subseteq \ldots$ be an increasing sequence of events. Show that
+\[
+\prob\left(\bigcup_{n=1}^{\infty} A_n\right) = \lim_{n\to\infty}\prob(A_n).
+\]
+\begin{solution}
+The event $A=\cup_{n=1}^{\infty} A_n$ can be written as a disjoint union,
+\[
+A  = A_1 \cup (A_2\setminus A_1) \cup (A_3\setminus A_2) \cup \ldots
+\]
+By additivity,
+\[
+\prob(A) = \prob(A_1) + \prob(A_2\setminus A_1) + \prob(A_3\setminus A_2) + \ldots
+\]
+and because $A_n\subseteq A_{n+1}$,
+\[
+\prob(A_{n+1}\setminus A_n)=\prob(A_{n+1})-\prob(A_n).
+\]
+Hence
+\begin{align*}
+\prob(A)		& = \prob(A_1) + \big[\prob(A_2) - \prob(A_1)\big] + \big[\prob(A_3) - \prob(A_2)\big] + \ldots \\
+		& = \lim_{n\to\infty} \prob(A_n)
+\end{align*}
+\end{solution}
+
+%--------------------
+\part
+A fair coin is tossed repeatedly. Show that a head eventually occurs with probability one.
+\begin{solution}
+Let $A_n$ be the event that a head occurs during the first $n$ tosses, and let $A$ be the event that a head eventually occurs. Then $A_1\subset A_2\subset A_3,\ldots$ is an increasing sequence with 
+\[
+A=\bigcup_{n=1}^{\infty} A_n.
+\]
+If we assume that the tosses are independent, 
+\[
+\prob(A_n) = 1 - \prob(\text{no heads in the first $n$ tosses}) = 1 - (1/2)^n.
+\]
+By the continuity property of probability measures,
+\[
+\prob(A) 
+	= \prob\left(\bigcup_{n=1}^{\infty}A_n\right)
+	= \lim_{n\to\infty} \prob(A_n)
+	= \lim_{n\to\infty} \left(1 - \frac{1}{2^n}\right) = 1.
+\]
+\end{solution}
+\end{parts}
+
+% Q2. EXPECTATION
+\question 
+\begin{parts}
+
+%--------------------
+\part
+If $X$ and $Y$ are simple random variables, show that 
+\[
+\expe(aX+bY)=a\expe(X)+b\expe(Y)\quad\text{ for all $a,b\in\R$.}
+\]
+\begin{solution}
+See lecture notes.
+\end{solution}
+
+%--------------------
+\part
+Let $X$ be a random variable with the following cumulative distribution function (CDF), 
+\[
+F(x) = \begin{cases}
+	1 - \left(\theta/x\right)^{\alpha}	& \text{ for $x\geq\theta$,} \\
+	0						& \text{ otherwise,}
+	\end{cases}
+\]
+where $\alpha>0$ and $\theta>0$ are the parameters of the distribution.
+\begin{subparts}
+%--------------------
+\subpart
+Show that $\expe(X)$ is infinite when $\alpha \leq 1$.
+\begin{solution}
+The PDF is $f(x) = \alpha\theta^{\alpha}/x^{\alpha+1}$ for $x>\theta$ (and zero otherwise), so
+\[
+\expe(X) = \int_{-\infty}^{\infty}xf(x)\,dx = \alpha\theta^{\alpha}\int_{\theta}^{\infty}\frac{1}{x^{\alpha}}\,dx.
+\]
+This integral converges if and only if $\alpha > 1$.
+\end{solution}
+%--------------------
+\subpart
+Find $\var(X)$ when $\alpha > 2$.
+\begin{solution}
+\begin{align*}
+\expe(X) 
+	& = \alpha\theta^{\alpha}\int_{\theta}^{\infty}\frac{1}{x^{\alpha}}\,dx 
+	= \alpha\theta^{\alpha}\left[\frac{-1}{(\alpha-1)x^{\alpha-1}}\right]_{\theta}^{\infty} 
+	= \frac{\alpha\theta}{\alpha-1}. \\
+\expe(X^2) 
+	& = \alpha\theta^{\alpha}\int_{\theta}^{\infty}\frac{1}{x^{\alpha-1}}\,dx 
+	= \alpha\theta^{\alpha}\left[\frac{-1}{(\alpha-2)x^{\alpha-2}}\right]_{\theta}^{\infty}
+	= \frac{\alpha\theta^2}{\alpha-2}. \\
+\var(X)
+	& = \expe(X^2) - \expe(X)^2 
+	= \frac{\alpha\theta^2}{(\alpha-1)^2(\alpha-2)}.
+\end{align*}
+\end{solution}
+\end{subparts}
+\end{parts}
+
+\end{questions}
+\end{exercise}
+
+Here is another exercise, this time with points for each question (not yet implemented in {\tt LatexTree}).
+\begin{exercise}
+\begin{questions}
+
+%--------------------
+\question[7]
+Let $X\sim\text{Exponential}(\lambda)$ where $\lambda>0$ is a rate parameter. Find the CDF of the random variable $Y=e^X$.
+\droppoints
+\begin{solution}
+\bit
+\it $g(x)=e^x$ is one-to-one and increasing over $[0,\infty)$
+\it The inverse transformation is $g^{-1}(y) = \log y$.
+\it $\supp(f_X)=[0,\infty)$ so $\supp(f_Y)=[1,\infty)$.
+\eit
+Because $g$ is increasing, for $y\geq 1$ we have
+\[
+F_Y(y) = F_X\big[g^{-1}(y)\big] = 1 - e^{-\lambda\log y} = 1 - 1/y^{\lambda}
+\]
+and zero otherwise.
+\end{solution}
+
+%--------------------
+\question[4]
+Let $X$ be a continuous random variable and let $F(x)$ denote its cumulative distribution function (CDF). If the inverse function $F^{-1}$ exists for all $x\in\R$, show that the random variable $U=F(X)$ is uniformly distributed on $[0,1]$.
+\droppoints
+\begin{solution}
+Since $F(x)=\prob(X\leq x)$ is a CDF, we have that $F(x)\in [0,1]$ for all $x\in\R$.
+In particular, $\prob(U<0)=0$ and $\prob(U>1)=0$.
+\par
+For $u\in[0,1]$, because the inverse $F^{-1}$ exists, we have 
+\begin{align*}
+\prob(U\leq u) 
+	& = \prob\big(F(X)\leq u\big) \\
+	& = \prob\big(X\leq F^{-1}(u)\big) \\
+	& = F\big(F^{-1}(u)\big) \\
+	& = u
+\end{align*}
+which is the CDF of the uniform distribution on $[0,1]$.
+\end{solution}
+
+%--------------------
+\question[4]
+Given a pseudo-random number from the $\text{Uniform}[0,1]$ distribution, show how this can be converted into a pseudo-random number from the $\text{Rayleigh}(\sigma)$ distribution, whose CDF is given by
+\[
+F(x) = \begin{cases}
+	1 - e^{-x^2/2\sigma^2}	&\text{for $x\geq 0$,} \\
+	0						& \text{ otherwise,}
+	\end{cases}
+\]
+where $\sigma>0$ is a parameter of the distribution.
+\droppoints
+\begin{solution}
+Let $X\sim\text{Rayleigh}(\sigma)$. To invert the CDF let $u=1-e^{-x^2/2\sigma^2}$. Then $x^2 = -2\sigma^2\log(1-u)$, and because $X$ takes only non-negative values,
+\[
+F^{-1}(u) = -\sigma\sqrt{2}\log(1-u)
+\]
+Applying this to a pseudo-random number $u$ from the $\text{Uniform}[0,1]$ distribution yields a pseudo-random number from the $\text{Rayleigh}(\sigma)$ distribution.
+\end{solution}
+
+\end{questions}
+\end{exercise}
+
+%==============================
+\newpage
+\section{Quizzes}
+%==============================
+
+{\tt exam.cls} implements multiple choice questions via the \texttt{choices} environment and multiple answer questions via the \texttt{checkboxes} environment. Here we put solutions in an {\tt answers} environment, which are not displayed by {\tt LatexTree}.
+
+\begin{quiz}\label{quiz:frivolous}
+\begin{questions} 
+
+% true or false (implemented via multiple choice)
+\question True or false. Necessity is the mother of invention.
+\begin{choices}
+\correct True 		
+\incorrect False		
+\end{choices}
+\begin{answer}
+You may disagree.
+\end{answer}
+
+% multiple choice
+\question In what year did Columbus first cross the Atlantic?
+\begin{choices}
+\incorrect 1490 \resp{Sorry, better luck next time.}
+\incorrect 1491 \resp{Sorry, better luck next time.}
+\correct   1492 \resp{Correct, well done.}
+\incorrect 1493 \resp{Sorry, better luck next time.}
+\end{choices}
+\begin{answer}
+In 1492, Columbus sailed the ocean blue.
+\end{answer}
+
+% multiple answer
+\question 
+Which of the following were members of the Beatles?  
+\noindent
+\begin{checkboxes}
+\correct John 
+\correct Paul
+\correct George
+\incorrect Bingo 
+\end{checkboxes}
+\begin{answer}
+Bingo was not a member of the Beatles.
+\end{answer}
+
+% checkboxes 
+\question
+\label{qu:series}
+Which of the following series are convergent?
+\begin{checkboxes}
+\incorrect $\sum_{n=1}^{\infty}\frac{1}{\sqrt{n}}$
+\incorrect $\sum_{n=1}^{\infty}\frac{1}{n}$ 
+	\resp{This is the \emph{harmonic} series, which is divergent.}
+\correct $\sum_{n=1}^{\infty}\frac{1}{n^2}$
+\correct $\sum_{n=1}^{\infty}\frac{1}{n^3}$
+\end{checkboxes}
+\begin{answer}
+The second of these is the \emph{harmonic} series, which is divergent.
+\end{answer}
+\end{questions}
+\end{quiz}
+
+
+\end{document}
+%----------------------------------------
+
+

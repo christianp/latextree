@@ -1,0 +1,38 @@
+{% extends "index.html" %}
+
+{% block breadcrumbs %}
+	{{ super() }}
+	{% if chapter %}&gt;<a href="{{ page_urls[chapter] }}">{% with title = chapter.get_title_node() %}{% include "title.html" %}{% endwith %}</a>{% endif %}
+{% endblock %}
+
+{% block content_main %}	
+
+	{# preface #}
+	{% if chapter.children %}
+		{%- for node in chapter.children if not node.get_species() == "section" recursive -%}
+			{% if node.get_species() == "title" %}
+				<h1>{% with title = node %}{{ title.parent.number }}.&nbsp;{% include "title.html" %}{% endwith %}</h1>
+			{% else %}
+				{%- include "node.html" -%}
+			{% endif %}
+		{%- endfor -%}
+	{% endif %}
+
+	{% if sections %}
+		<h3>Sections</h3>
+		{% include "chapter_toc.html" %}
+	{% endif %}
+			
+{% endblock %}
+
+{% block sidebar %}
+	<h2 style="text-align:center;"><a href="index.html">{{ doc.preamble.title }}</a></h2>
+	{% if sections %}
+		<h3>Sections</h3>
+		{% include "chapter_toc.html" %}
+	{% endif %}
+	{% if chapters %}
+		<h3>Chapters</h3>
+		{% include "toc.html" %}
+	{% endif %}
+{% endblock %}

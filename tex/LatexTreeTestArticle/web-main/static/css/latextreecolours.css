@@ -1,0 +1,116 @@
+/* latextreecolour.css for camel project */
+
+
+/* borders */
+.definition, .lemma, .theorem, .corollary, .remark, .example {
+    border:1px solid #000;
+}
+.exercise, .quiz, .questions, .question, .answerbox {
+    border:1px solid #000;
+}
+.proof, .solution, .answer, .hint {
+    border:1px solid #000;
+}
+h1, h2, h3 {
+    border:1px solid #000;
+}
+
+/* basic elements */
+body {
+    margin:0;
+    padding:2ex;
+    background:fff;
+}
+
+/* quizzes */
+.choicesbox, .incorrect_choicesbox, .correct_choicesbox {
+    background:WhiteSmoke;
+    border:1px solid #000;
+    padding:0px
+}
+.incorrect_choicesbox {
+	background:tomato;
+}
+.correct_choicesbox {
+	background:lightgreen;
+}
+
+/* answer boxes */
+.answer, .solution, .previewbox {
+    background:lightgray;
+}
+
+.inner_hidebox {
+    background-color:#FFFFE0;
+}
+div.inner_solution {
+    background-color:#FFFFE0;
+}
+
+/* questions */
+li.question {
+	background:MistyRose;
+}
+
+/* theorems */
+div.theorem {
+	background:MistyRose;
+}
+div.lemma {
+	background:MistyRose;
+}
+div.proof {
+	background:lightyellow;
+}
+div.remark {
+	background:lavenderblush;
+}
+div.definition {
+	background:lavender;
+}
+div.example {
+	background:WhiteSmoke;
+}
+div.solution {
+	background:lightyellow;
+}
+
+/* tasks */
+div.task {
+	background:pink;
+	padding:5px;
+}
+div.choices, div.checkboxes {
+	background:lightblue;
+}
+.choicesbox {
+    background:WhiteSmoke;
+}
+.incorrect_choicesbox {
+	background:tomato;
+}
+.correct_choicesbox {
+	background:lightgreen;
+}
+.answerbox, .previewbox {
+	background:lightgrey;
+}
+
+div.exercise {
+	background:lightblue;
+}
+div.questions {
+	background:lightblue;
+}
+div.question {
+	background:lightyellow;
+}
+div.answer {
+	background:antiquewhite;
+}
+
+/* floats */
+.figure {
+    background:WhiteSmoke;
+}
+

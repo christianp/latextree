@@ -1,0 +1,151 @@
+/* layout.css for camel project */
+
+/* Layout:
+head:
+    style, 
+    scripts
+    title
+body:
+  container
+	breadcrumbs
+	columnwrap
+		content-main
+			browse-horizontal
+			content-secondary
+		sidebar
+	footer
+*/
+
+/* hack for increasing parsep */
+/*br { font-size: 200%; }*/
+
+
+/* I don't know what this does */
+body {
+	overflow-x: hidden;
+}
+
+/* hyperlinks */
+a:link, a:visited { 
+    text-decoration: none;
+}
+
+#institution {
+	display:block;
+	text-align:left;
+}
+
+#institution, #breadcrumbs {
+    line-height:10px;
+	padding: 0.5ex;
+	/* font-variant: small-caps; */
+}
+
+#columnwrap {
+    display: block;
+/*    position: relative;*/
+}
+
+#columnwrap:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+	
+}
+
+#content-main {
+/*    min-height: 500px;*/
+    width:80%;
+    padding-left:10px;
+    padding-right:10px;
+    float:left;
+}
+
+.sidebar {
+    width:17%;
+    font-size:92%;
+    float:right;
+/*	position: fixed;*/
+/*	right: 5;*/
+}
+
+.sidebar * {
+    margin-left:14px;
+    margin-right:14px;
+}
+
+.sidebar * * {
+    margin-left:0;
+    margin-right:0;
+}
+
+#content-secondary {
+    clear:both;
+    margin-left:0;
+    margin-right:0;
+    margin-bottom:-10px;
+    padding:10px 24px;
+}
+
+/*#content-main * {
+	margin: 5px;
+	padding: 5px;
+}
+*/
+#browse-horizontal {
+/*    position: absolute;*/
+    bottom: 0;
+	width: 97%;
+	padding-left: 3px;
+	padding-right: 3px;
+	margin-top: 1px;
+	margin-bottom: 1px;
+}
+
+#top-nav {
+	width: 100%;
+	padding-left: 3px;
+	padding-right: 3px;
+	display:block;
+/*	margin: 1px;*/
+}
+
+/*#browse-horizontal {
+    padding:0.25em 1em 0.25em 1em;
+    overflow:hidden;
+    line-height:0.5em;
+    display:block;
+	vertical-align:center;
+}
+*/
+p.left {
+	float:left;
+	margin: 2px;
+	vertical-align: center;
+}
+
+p.right {
+    float:right;
+	margin: 2px;
+	vertical-align: center;
+}
+
+#footer {
+    clear:both;
+    padding:5px 0px;
+    font-size:90%;
+}
+
+.sidebar blockquote {
+    margin-top:1.5em;
+    margin-bottom:1.5em;
+}
+.sidebar blockquote cite {
+    display:block;
+    line-height:1.2em;
+    margin-top:-.8em;
+}
+
+

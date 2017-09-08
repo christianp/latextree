@@ -1,0 +1,63 @@
+%------------------------------------------------
+% main.tex - Test article for LatexTree package
+%------------------------------------------------
+\documentclass{article}
+
+% document info
+\title{Test Article for LatexTree}
+\author{D Evans}
+\date{June 2017}
+
+% meta info
+\makeatletter\newcommand{\institution}{}\makeatother
+%\institution{Cardiff University School of Mathematics}
+
+% layout
+\usepackage[margin=20mm, a4paper]{geometry}
+\setlength{\parindent}{0ex}
+\setlength{\parskip}{1ex}
+
+\newcommand{\dummymacro}[1]{#1}
+\newenvironment{dummyenv}{}{}
+%----------------------------------------
+\begin{document}\label{article:latextreetest}
+\maketitle
+
+\begin{abstract}\noindent
+This is a test document for {\tt LatexTree} using the {\tt article} class. For documents without any level commands (chapter, section, etc.) we want the whole document on a single page, including the bibliography if necessary.
+\end{abstract}
+
+\section*{Unlisted macros and environments}
+With {\tt LatexDocument.make\_website()}, the contents of unlisted environments can be hidden by wrapping the environment in a {\tt div} of class {\tt unlisted}, which has the property {\tt display:none} set in the stylesheets. There is a problem however with macros having one or more arguments that are not listed in `macrosdef.py`. Its absence causes {\tt pylatexenc.latexwalker} to not parse the argument(s) but instead to parse the macro as having zero arguments, and to parse the argument as a separate {\tt LatexGroupNode}.
+
+Working: dummy environment:
+\begin{dummyenv}
+How much is the fish?
+\end{dummyenv}
+
+Not working: dummy macro: \dummymacro{Hello}
+
+\section*{Fruit}
+An unordered list:
+\begin{itemize}
+\item Apples
+\item Oranges
+\item Lemons
+\end{itemize}
+
+\section*{Modes of transport}
+An ordered list:
+\begin{enumerate}
+\item Cars
+\item Buses
+\item Bikes
+\end{enumerate}
+
+\nocite{*}
+\bibliographystyle{plain}
+\bibliography{references}
+
+\end{document}
+%----------------------------------------
+
+

@@ -1,0 +1,72 @@
+% !TEX root = main.tex
+
+\chapter{Text Processing}
+
+\section{Spacing problems}
+Here is a sum $1+1=2$. Watch the comma $\sum x_n^2$, is there a space? Seems to be fixed!
+
+\subsection*{Non-breaking spaces}
+Tildes don't appear in mathmode. Here is an fbox containing lots of them:
+\par
+\fbox{$A~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~B$}
+\par
+
+\bigskip
+The {\tt LatexTree} parser replaces
+\bit
+\it all tildes in normal mode by (non-breaking) spaces and
+\it all spaces in mathmode by tildes (to foil Blackboard's rewriters).
+\eit
+
+
+\section{Accents and escaped characters}
+
+\subsection*{Accents}
+Spaces between consecutive characters are disappear after processing. This is a consequence of not leaving a space between consecutive text elements. (This can be fixed by merging adjacent text elements, perhaps during post-processing.)
+\bit
+\it These should be spaced: \'{e} \`{e} \^{w} \"{o} \c{c}.
+\it We can manually input the spaces: \'{e}\ \`{e}\ \^{w}\ \"{o}\ \c{c}.
+\eit
+All seems fine for accented characters inside words:
+\bit
+\it Cram\'{e}r-Rao.
+\it Y m\^{o}r coch.
+\it He is blas\'{e} about it.
+\eit
+
+\subsection*{Escaped characters}
+Here are some escaped characters:
+\bit
+\it ampersand: \& 
+\it percent: \%
+\it dollar: \$
+\eit
+
+We need to be careful with \$ characters!
+
+\section{Font styles}
+Here are some font styles: 
+\bit
+\it \textbf{bold}
+\it \textit{italic}
+\it \texttt{teletype}
+\it \textsc{small caps} 
+\it \textsl{oblique}
+\it \emph{emphasis}
+\eit
+
+\section{TeX shortcuts for lists}
+The itemize macros (\texttt{bit,it,eit}):
+\bit
+\it apples
+\it oranges
+\eit
+
+The enumerate macros (\texttt{ben,it,een}):
+\ben
+\it first
+\it second
+\een
+
+{\tt LatexTree} deals with these during pre-processing.
+

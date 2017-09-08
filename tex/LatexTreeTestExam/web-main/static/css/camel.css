@@ -1,0 +1,47 @@
+/* camel project css */
+
+/* text logo - mimics the latex logo */
+.textlogo {
+  font-family: Times, "Times New Roman", serif;	
+  letter-spacing: 1.5px;
+}
+
+.textlogo sup {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.75em;
+  vertical-align: 0.25em;
+  margin-left: -0.32em;
+  margin-right: -0.19em;
+}
+
+.textlogo sub {
+  text-transform: uppercase;
+  vertical-align: -0.5ex;
+  margin-left: -0.15em;
+  margin-right: -0.15em;
+  font-size: 1em;
+}
+
+#header {
+    position:relative;
+    height:55px;
+	background:#D7D9F7;
+	border-left:1px solid #000;
+	border-right:1px solid #000;
+	border-bottom:1px solid #000;
+}
+#header span#logo {
+    position:absolute;
+    margin:0;
+    width:100px;
+    height:40px;
+    bottom:20px;
+    left:10px;
+}
+#header h1#banner {
+    position:absolute;
+    margin:5;
+    bottom:2px;
+    left:70px;
+}

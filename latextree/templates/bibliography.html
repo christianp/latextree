@@ -1,0 +1,20 @@
+{% if bibliography and bibliography.children %}
+	<ul class="bibliography">
+	{% for node in bibliography.children %}
+		{% if node.get_species() == "bibitem" %}
+		    <li class="bibitem", id="{{ node.label }}">
+		        {% set harvard = node.harvard_dict() %}
+		        {% if harvard.author %} {{ harvard.author }} {% endif %}
+		        {% if harvard.year %} ({{ harvard.year }}) {% endif %} 
+		        {% if harvard.title %} <it>{{ harvard.title }}</it>. {% endif %}
+		        {% if harvard.publisher %} {{ harvard.publisher }}. {% endif %}
+		        {% if harvard.isbn %} <span style="white-space:nowrap;">ISBN:{{ harvard.isbn }}.</span> {% endif %}
+	   	 	</li>
+		{% endif %}
+	{% endfor %}
+    </ul>
+{% else %}
+	No items in bibliography!
+{% endif %}
+
+

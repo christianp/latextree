@@ -1,0 +1,248 @@
+<html>
+
+    <head>
+		
+		<link rel="shortcut icon" href="static/img/camel_logo.png" />
+		
+                <link rel="stylesheet" type="text/css" href="static/css/latex2web.css"/>
+
+
+	
+
+<!-- load mathjax config **before** MathJax.js -->
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+    	extensions: ["tex2jax.js"],
+    	jax: ["input/TeX", "output/HTML-CSS"],
+    	tex2jax: {
+      	  	inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      	  	displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      	  	processEscapes: true
+    	},
+    	TeX: {
+			equationNumbers: { 
+				autoNumber: "AMS",
+				formatNumber: function (n) { return n }
+			},
+			Macros: {
+				RR: "{\\bf R}",
+				pounds: '{\\unicode{xA3}}',
+			}
+    },
+    "HTML-CSS": {
+		availableFonts: ["TeX"],
+		linebreaks: { 
+			automatic: true, 
+			width: "container"
+		}
+	 }
+  });
+</script>
+
+<!--script src="static/Mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+	
+
+<script type="text/javascript" 
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+</script>
+
+<script type="text/javascript" src="static/js/showhide.js"></script>
+ 
+		<title>Test Book for the LatexTree Package</title>
+   
+     </head>
+	
+<body>
+	<div class="macros">
+			\(\renewcommand{\thetheorem}{\arabic{chapter}.\arabic{theorem}}\)
+			\(\renewcommand{\emph}[1]{\textbf{#1}}\)
+			\(\newcommand{\N}{\mathbb{N}}\)
+			\(\newcommand{\Z}{\mathbb{Z}}\)
+			\(\newcommand{\R}{\mathbb{R}}\)
+			\(\newcommand{\C}{\mathbb{C}}\)
+			\(\newcommand{\prob}{\mathbb{P}}\)
+			\(\newcommand{\expe}{\mathbb{E}}\)
+			\(\newcommand{\var}{\text{Var}}\)
+			\(\newcommand{\cov}{\text{Cov}}\)
+			\(\newcommand{\includevideo{}}[2]{[}\)
+			\(\renewcommand{\arraystretch}{1.3}\)
+	</div>
+	
+<div id="container" style="min-height:500px;">
+
+	<div id="institution">
+	
+	</div>
+	<div id="breadcrumbs">
+	    <a href="index.html">Test Book for the LatexTree Package</a>
+
+&gt;<a href="ch04sec00.html"><span class="chapter_title">
+Theorems	</span></a>	</div>
+	<div id="columnwrap">
+		
+		<div id="content-main">
+	
+
+				<h1>4.&nbsp;<span class="chapter_title">
+Theorems	</span></h1>
+<br/><div class="theorem">
+<div class="blockheading"> 
+    Theorem&nbsp;4.1&nbsp;</div>
+If $a$ and $b$ are odd numbers, then $ab$ is an odd number.
+<div class="proof">
+		<div class="showhide">
+			<p class="hidebox_title">Proof</p>
+			<div class="inner_hidebox">
+				
+Let $a$ and $b$ be odd numbers. Then by definition there exist integers $c$ and $d$ such that 
+<div class="displaymath">
+       \[
+a=2c+1 \quad\text{and}\quad b=2d+1.
+\]
+    </div><br/>It is easy to show that $ab = 2(2cd + c + d) + 1$, and because $2cd+c+d$ is an integer we conclude that $ab$ is odd.
+
+			</div>
+		</div>
+	</div></div><br/><div class="theorem">
+<div class="blockheading"> 
+    Theorem&nbsp;4.2&nbsp;</div>$\sqrt{2}$ is irrational.
+<div class="proof">
+		<div class="showhide">
+			<p class="hidebox_title">Proof</p>
+			<div class="inner_hidebox">
+				
+Suppose to the contrary that $\sqrt{2}$ is rational. Let us write $\sqrt{2} = a/b$ where $a$ and $b$ are integers, and assume that the fraction is written in its simplest terms.
+Then we have $2b^2 = a^2$ which implies that $a^2$ is even.
+<br/>
+By the previous theorem, if $a$ is odd then $a^2$ is also odd, so it must be that $a$ is even. Let us write this as $a=2c$ for some integer $c$. Then
+<div class="displaymath">
+       \[
+2b^2 = a^2 = (2c)^2 = 4c^2, \text{ so } b^2 = 2c^2.
+\]
+    </div>
+As above we conclude that $b$ must also be even, i.e.&nbsp;$b = 2d$ for some integer $d$.
+<br/>
+We assumed however that the fraction $a/b$ was in its simplest form, but we have shown that this is not the case, because
+<div class="displaymath">
+       \[\sqrt{2} = a/b = (2c)/(2d) = c/d.
+\]
+    </div>
+This is a contradiction, so we conclude that $\sqrt{2}$ is irrational.
+
+			</div>
+		</div>
+	</div></div><br/>
+<div class="theorem">
+<div class="blockheading"> 
+    Theorem&nbsp;4.3&nbsp;</div>
+There are infinitely many prime numbers.
+<div class="proof">
+		<div class="showhide">
+			<p class="hidebox_title">Proof</p>
+			<div class="inner_hidebox">
+				
+Assume the contrary statement: suppose that there are only finitely many prime numbers. Call them $p_1,p_2\ldots,p_n$.
+Then the number $p = p_1p_2\ldots p_n + 1$ is bigger than all of $p_1,p_2,\ldots,p_n$ and so cannot be prime.
+<br/>
+If we divide $p$ by any of the $p_j$ we get remainder $1$, so $p$ must be divisible by some non-prime number, say $b$.
+By the Fundamental Theorem of Arithmetic, every integer greater than $1$ is either prime or the product of prime numbers.
+<br/>
+Consequently there must be a prime number $p_j$ that divides $b$, and which therefore divides $p$.
+This is a contradiction, so our original assumption must be false.
+Thus we conclude that there are infinitely many prime numbers.
+
+			</div>
+		</div>
+	</div></div><div class="unlisted"><div class="comment"></div></div><br/>
+			
+
+        	<br/>
+        	<br/>
+			<div id="browse-horizontal">
+<p class="left">
+        <a href="ch03sec00.html">
+            &larr;&nbsp;
+3.<span class="chapter_title">
+Mathematics	</span>        </a>
+</p>
+<p class="right">
+        <a href="ch05sec00.html">5.<span class="chapter_title">
+Text Processing	</span>            &nbsp;&rarr;
+        </a>
+</p>
+<div style="clear: both;"></div>        	</div>
+
+    	
+		</div>
+
+    	<div id="content-related", class="sidebar">
+	<h2 style="text-align:center;"><a href="index.html">Test Book for the LatexTree Package</a></h2>
+		<h3>Chapters</h3>
+   
+			<p>
+				<a href="ch01sec00.html">
+				1.&nbsp;
+<span class="chapter_title", id="ch:levels">
+Levels and Headings	</span>				</a>
+			</p>
+   
+			<p>
+				<a href="ch02sec00.html">
+				2.&nbsp;
+<span class="chapter_title">
+Lists	</span>				</a>
+			</p>
+   
+			<p>
+				<a href="ch03sec00.html">
+				3.&nbsp;
+<span class="chapter_title">
+Mathematics	</span>				</a>
+			</p>
+   
+			<p>
+				4.&nbsp;
+<span class="chapter_title">
+Theorems	</span>			</p>
+   
+			<p>
+				<a href="ch05sec00.html">
+				5.&nbsp;
+<span class="chapter_title">
+Text Processing	</span>				</a>
+			</p>
+   
+			<p>
+				<a href="ch06sec00.html">
+				6.&nbsp;
+<span class="chapter_title">
+Tables	</span>				</a>
+			</p>
+   
+			<p>
+				<a href="ch07sec00.html">
+				7.&nbsp;
+<span class="chapter_title">
+Images and Video	</span>				</a>
+			</p>
+   
+			<p>
+				<a href="ch08sec00.html">
+				8.&nbsp;
+<span class="chapter_title", id="ch:links">
+Links	</span>				</a>
+			</p>
+		<p><a href="bibliography.html">
+			Bibliography
+		</a></p>
+        </div>
+    </div>
+
+    <div id="footer">
+        Generated by LatexTree (Cardiff University 2017)
+    </div>
+</div>
+
+</body>
+</html>

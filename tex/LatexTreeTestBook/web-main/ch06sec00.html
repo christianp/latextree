@@ -1,0 +1,351 @@
+<html>
+
+    <head>
+		
+		<link rel="shortcut icon" href="static/img/camel_logo.png" />
+		
+                <link rel="stylesheet" type="text/css" href="static/css/latex2web.css"/>
+
+
+	
+
+<!-- load mathjax config **before** MathJax.js -->
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+    	extensions: ["tex2jax.js"],
+    	jax: ["input/TeX", "output/HTML-CSS"],
+    	tex2jax: {
+      	  	inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      	  	displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      	  	processEscapes: true
+    	},
+    	TeX: {
+			equationNumbers: { 
+				autoNumber: "AMS",
+				formatNumber: function (n) { return n }
+			},
+			Macros: {
+				RR: "{\\bf R}",
+				pounds: '{\\unicode{xA3}}',
+			}
+    },
+    "HTML-CSS": {
+		availableFonts: ["TeX"],
+		linebreaks: { 
+			automatic: true, 
+			width: "container"
+		}
+	 }
+  });
+</script>
+
+<!--script src="static/Mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+	
+
+<script type="text/javascript" 
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+</script>
+
+<script type="text/javascript" src="static/js/showhide.js"></script>
+ 
+		<title>Test Book for the LatexTree Package</title>
+   
+     </head>
+	
+<body>
+	<div class="macros">
+			\(\renewcommand{\thetheorem}{\arabic{chapter}.\arabic{theorem}}\)
+			\(\renewcommand{\emph}[1]{\textbf{#1}}\)
+			\(\newcommand{\N}{\mathbb{N}}\)
+			\(\newcommand{\Z}{\mathbb{Z}}\)
+			\(\newcommand{\R}{\mathbb{R}}\)
+			\(\newcommand{\C}{\mathbb{C}}\)
+			\(\newcommand{\prob}{\mathbb{P}}\)
+			\(\newcommand{\expe}{\mathbb{E}}\)
+			\(\newcommand{\var}{\text{Var}}\)
+			\(\newcommand{\cov}{\text{Cov}}\)
+			\(\newcommand{\includevideo{}}[2]{[}\)
+			\(\renewcommand{\arraystretch}{1.3}\)
+	</div>
+	
+<div id="container" style="min-height:500px;">
+
+	<div id="institution">
+	
+	</div>
+	<div id="breadcrumbs">
+	    <a href="index.html">Test Book for the LatexTree Package</a>
+
+&gt;<a href="ch06sec00.html"><span class="chapter_title">
+Tables	</span></a>	</div>
+	<div id="columnwrap">
+		
+		<div id="content-main">
+	
+
+				<h1>6.&nbsp;<span class="chapter_title">
+Tables	</span></h1>
+<br/>		<h3 class="subsection">Inline</h3>
+
+An inline <span class="texttt">tabular</span> environment:
+<table class="tabular">				
+            <tr class="t">				
+        <td class="cL">				
+        $\alpha$
+	</td>
+
+<td class="c">				
+        $\beta$
+	</td>
+
+<td class="cR">				
+        $\gamma$
+	</td>
+
+
+	</tr><tr class="tb">				
+        <td class="cL">				
+        $1/2$
+	</td>
+
+<td class="c">				
+        $1/3$
+	</td>
+
+<td class="cR">				
+        $1/6$
+	</td>
+
+
+	</tr>
+	</table><br/>		<h3 class="subsection">Centred</h3>
+
+A centred <span class="texttt">tabular</span> environment:
+<div class="center">
+       <table class="tabular">				
+            <tr class="t">				
+        <td class="cL">				
+        
+(1,1)
+	</td>
+
+<td class="cL">				
+         (1,2)
+	</td>
+
+<td class="cLR">				
+         (1,3)
+	</td>
+
+
+	</tr><tr class="tb">				
+        <td class="cL">				
+        
+(2,1)
+	</td>
+
+<td class="cL">				
+         (2,2)
+	</td>
+
+<td class="cLR">				
+         (2,3)
+	</td>
+
+
+	</tr>
+	</table>
+    </div><br/>		<h3 class="subsection">Floating</h3>
+
+A floating <span class="texttt">table</span> environment:
+<div class="table">
+<div class="blockheading"> 
+    Table&nbsp;6.1&nbsp;				 <span class="caption">Logic and Set Theory</span>
+</div><div class="unlisted"><div class="centering"></div></div><table class="tabular">				
+            <tr class="t">				
+        <td class="cL">				
+        
+Set Theory
+	</td>
+
+<td class="cL">				
+        
+	</td>
+
+<td class="cLL">				
+         Logic
+	</td>
+
+<td class="cL">				
+        
+	</td>
+
+<td class="cLR">				
+        
+	</td>
+
+
+	</tr><tr class="t">				
+        <td class="cL">				
+        
+Union
+	</td>
+
+<td class="cL">				
+        $A\cup B$
+	</td>
+
+<td class="cLL">				
+         Disjunction
+	</td>
+
+<td class="cL">				
+         OR
+	</td>
+
+<td class="cLR">				
+        $\lor$
+	</td>
+
+
+	</tr><tr>				
+        <td class="cL">				
+        
+Intersection
+	</td>
+
+<td class="cL">				
+        $A\cap B$
+	</td>
+
+<td class="cLL">				
+         Conjunction
+	</td>
+
+<td class="cL">				
+         AND
+	</td>
+
+<td class="cLR">				
+        $\land$
+	</td>
+
+
+	</tr><tr class="b">				
+        <td class="cL">				
+        
+Complement
+	</td>
+
+<td class="cL">				
+        $A^c$
+	</td>
+
+<td class="cLL">				
+         Negation
+	</td>
+
+<td class="cL">				
+         NOT
+	</td>
+
+<td class="cLR">				
+        $\lnot$
+	</td>
+
+
+	</tr>
+	</table><div class="unlisted"><div class="caption">Logic and Set Theory</div></div></div><br/>
+<div class="unlisted"><div class="comment"></div></div><br/>
+			
+
+        	<br/>
+        	<br/>
+			<div id="browse-horizontal">
+<p class="left">
+        <a href="ch05sec00.html">
+            &larr;&nbsp;
+5.<span class="chapter_title">
+Text Processing	</span>        </a>
+</p>
+<p class="right">
+        <a href="ch07sec00.html">7.<span class="chapter_title">
+Images and Video	</span>            &nbsp;&rarr;
+        </a>
+</p>
+<div style="clear: both;"></div>        	</div>
+
+    	
+		</div>
+
+    	<div id="content-related", class="sidebar">
+	<h2 style="text-align:center;"><a href="index.html">Test Book for the LatexTree Package</a></h2>
+		<h3>Chapters</h3>
+   
+			<p>
+				<a href="ch01sec00.html">
+				1.&nbsp;
+<span class="chapter_title", id="ch:levels">
+Levels and Headings	</span>				</a>
+			</p>
+   
+			<p>
+				<a href="ch02sec00.html">
+				2.&nbsp;
+<span class="chapter_title">
+Lists	</span>				</a>
+			</p>
+   
+			<p>
+				<a href="ch03sec00.html">
+				3.&nbsp;
+<span class="chapter_title">
+Mathematics	</span>				</a>
+			</p>
+   
+			<p>
+				<a href="ch04sec00.html">
+				4.&nbsp;
+<span class="chapter_title">
+Theorems	</span>				</a>
+			</p>
+   
+			<p>
+				<a href="ch05sec00.html">
+				5.&nbsp;
+<span class="chapter_title">
+Text Processing	</span>				</a>
+			</p>
+   
+			<p>
+				6.&nbsp;
+<span class="chapter_title">
+Tables	</span>			</p>
+   
+			<p>
+				<a href="ch07sec00.html">
+				7.&nbsp;
+<span class="chapter_title">
+Images and Video	</span>				</a>
+			</p>
+   
+			<p>
+				<a href="ch08sec00.html">
+				8.&nbsp;
+<span class="chapter_title", id="ch:links">
+Links	</span>				</a>
+			</p>
+		<p><a href="bibliography.html">
+			Bibliography
+		</a></p>
+        </div>
+    </div>
+
+    <div id="footer">
+        Generated by LatexTree (Cardiff University 2017)
+    </div>
+</div>
+
+</body>
+</html>

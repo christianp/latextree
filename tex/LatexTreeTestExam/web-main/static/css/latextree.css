@@ -1,0 +1,489 @@
+/* latextree.css for camel project */
+
+
+/* boxes */
+.framed {
+    border:1px solid #000;	
+    padding:2px;
+}
+
+/* fix whitespace in preformatted content 
+pre, code {
+    white-space:normal;
+}
+*/
+pre { 
+	margin: 0;
+/*    overflow: auto;*/
+	whitespace: pre-wrap;
+}
+/* qestion numbering */ 
+ol.questions {
+	list-style-type:decimal;
+}
+ol.parts {
+	list-style-type:lower-alpha;
+}
+ol.subparts {
+	list-style-type:lower-roman;
+}
+ol.choices {
+	list-style-type:upper-alpha;
+}
+*/
+/*li.part:before {
+  content: ") ";
+}
+*/
+/*ol.questions {
+    counter-reset: part;
+    list-style-type: decimal;
+}
+ol.questions > part { display: block; }
+ol.questions > part:before {
+    content: counter(part) "  ";
+    counter-increment: part;
+}
+*/
+
+/*.blocktitle {
+	padding-top:2ex;
+	padding-bottom:1ex;
+}
+*/
+
+
+
+/* subfigure */
+.subfigure {
+	text-align: center;
+    white-space: pre;
+}
+
+/*.caption {
+	display:block;
+}*/
+
+/* videos */
+.videobox {
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  padding-bottom: 56.25%;
+}
+ 
+.videobox iframe {
+  position: absolute;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+
+/* cheat: increase parskip via <br>.
+These mostly correspond to \bigskip, \par etc 
+It doesn't work anyway!
+*/
+br {
+	display:block;
+    margin: 10px 0;
+	line-height:200%;
+	content: " ";
+}
+ol.choices {
+	list-style-type:upper-alpha;
+}
+ol.checkboxes {
+	list-style-type:upper-alpha;
+}
+li.question {
+  margin: 10px 0;
+}
+li.choice {
+  margin: 5px 0;
+}
+li.bibitem {
+  margin: 10px 0;
+}
+
+/* hack: make space between list marker (A,B,...) and the text: doesn't work */
+li.choice:before {
+  content: " ";
+}
+
+/* by default the block are packed too closely - they need some margins */
+div.proof, div.solution, div.answer, div.hint {
+	background:lightgray;
+    margin: 5px 0;
+}
+
+.definition, .lemma, .theorem, .corollary, .remark, .example {
+    /* border:1px solid #000; */
+	background:WhiteSmoke;
+    margin: 5px 0;
+}
+
+.video {
+	background:WhiteSmoke;
+    margin: 10px 0;
+}
+
+img { 
+    height: auto;
+    width: 100%;
+}
+
+.latex {
+/*    display: inline-block;*/
+}
+.text {
+/*    display: inline-block;*/
+}
+
+.textbf, .textit, .texttt, .textsl, .textsc, .underline {
+/*	margin: 0px;
+	padding: 5px;
+    border:1px solid #000;
+	padding: 0;
+	position: relative;
+	float:left;
+    display: inline-block;
+*/}
+
+
+/* choose emphasis font*/
+span.emph {
+	font-style: italic;
+}
+
+/* font styles inc. emphasis */
+.textbf, .bf {
+	font-weight: bold;
+}
+.textit, .it {
+	font-style: italic;
+}
+.texttt, .tt {
+	font-family: monospace;
+}
+.textsc, .sc {
+	font-variant: small-caps;
+}
+.textsl, .sl {
+	font-style: oblique;
+}
+.underline {
+	text-decoration: underline;
+}
+
+/* fix monospace font-size problem: most browsers reduce size to compensate for the increased width */
+.texttt, .tt, pre, code, kbd, samp, tt {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+/* blocktitle: Theorem, Example etc. */
+.blockheading {
+  	font-size: 90%;
+	text-align: left;
+	font-weight: bold;
+} 
+
+/* blockname: "Pythagoras' theorem", "Zorn's Lemma" etc. */
+span.blocktitle, span.caption {
+  	font-size: 100%;
+	text-align: left;
+	font-weight: normal;
+} 
+span.blocktitle {
+	font-style: italic;
+} 
+span.blocktitle::before {
+    content: "(";
+}
+span.blocktitle::after {
+    content: ")";
+}
+
+/* hideboxes: proof, solution, answer  */
+p.hidebox_title {
+	font-weight: bold;
+	text-align: left;
+  	font-size: 75%;
+	margin-right:3px;
+	margin-top:0px;
+    margin-bottom:0px;   
+} 
+
+/* hidden boxes: proofs, answers and solutions (hidden by default) */
+.answer, .solution {
+    display: hidden;
+    cursor: pointer;
+/*    border:1px solid #000;*/
+    padding:3px;
+}
+p.answer_title, p.hidebox_title {
+	text-align: left;
+  	font-size: 75%;
+/*	margin-right:3px;
+	margin-top:0px;
+    margin-bottom:0px;*/
+    
+} 
+
+/* tableofcontents, bibliography etc. */
+ul.toc {
+    padding: 0px;
+    margin: 0px;
+    list-style-type: none;
+}
+
+/* display properties */
+.visible > div {
+  display: block;
+}
+.hidden > div {
+  display: none
+}
+
+.editbox, .answerbox, .previewbox,  {
+    border:1px solid #000;
+    padding:2px
+}
+.answerbox {
+    display: hidden;
+    cursor: pointer;
+}
+.previewbox {
+    display: hidden;
+	cursor: pointer;
+}
+p.answerbox_title {
+	text-align: left;
+  	font-size: 75%;    
+} 
+
+.inner_hidebox {
+    display: hidden;
+    padding: 5px;
+}
+
+p.answerbuttons {
+    border:1px solid #000;
+    align:right;
+}
+
+.inner_solution {
+    display: hidden;
+    padding: 5px;
+}
+
+.step {
+    display: hidden;
+    cursor: pointer;
+}
+
+.inner_step {
+    display: hidden;
+    border:1px solid #000;
+    padding: 5px;
+}
+
+
+/* spacing between blocks */
+/*p + p, li + li, div + div {
+    margin-top: 10px;
+}
+*/
+/* prevent newcommands from flashing up at the start */
+div.macros {
+	display: none;
+}
+
+/* headings */
+h1.chapter {
+	padding:0px;
+  	font-size:150%;
+}
+h2.section {
+	padding:0px;
+  	font-size:120%;
+}
+h3.subsection {
+	padding:0px;
+  	font-size:100%;
+}
+/* monospace font (for code blocks) */
+.mono {
+    text-align:		left;
+    font-family: 	monospace;
+    white-space: 	pre;
+    font-size: 		125%;
+    letter-spacing:	2px;
+    visibility: 	visible;
+    position: 		absolute;
+}
+
+/* main */
+body {
+    margin:0;
+    padding:2ex;
+}
+
+/* boxes */
+div.centre {
+	text-align: center;
+}
+
+/* toc */
+table.chapters {
+	border-spacing:25px 0px;
+}
+
+
+/* tabulars - lots more styling to be done! */
+table.tabular {
+	border-collapse:collapse;
+/*	margin-left:auto;
+	margin-right:auto;*/
+}
+table.tabular td {
+    padding:4px;
+}
+
+table.tabular tr.n {
+}
+table.tabular tr.t {
+    border-top:1px solid #000;
+}
+table.tabular tr.b {
+    border-bottom:1px solid #000;
+}
+table.tabular tr.tb {
+    border-top:1px solid #000;
+    border-bottom:1px solid #000;
+}
+table.tabular tr.tt {
+    border-top:1px double #000;
+}
+table.tabular tr.bb {
+    border-bottom: 1px double #000;
+}
+
+table.tabular td.c, td.cL, td.cLL, td.cR {
+	text-align:	center;
+}
+table.tabular td.l, td.lL, td.lLL, td.lR {
+	text-align:	left;
+}
+table.tabular td.r, td.rL, td.rLL, td.rR {
+	text-align:	right;
+}
+table.tabular td.cL, td.lL, td.rL {
+	border-left:1px solid #000;
+}
+table.tabular td.cLL, td.lLL, td.rLL {
+	text-align:	center;
+	border-left:1px double #000;
+}
+table.tabular td.cLR, td.lLR, td.rLR {
+	text-align:	center;
+	border-left:1px solid #000;
+	border-right:1px solid #000;
+}
+/*
+table.tabular td.r, td.rL, td.rR {
+	text-align:	right;
+}
+table.tabular td.l, td.lL, td.lR {
+	text-align:	left;
+}
+
+table.tabular td.lL, td.cL, td.rL, td.LR {
+	border-left:1px solid #000;
+}
+table.tabular td.lR, td.cR, td.rR, td.LR {
+	border-right:1px solid #000;
+}
+
+.lLL, .cLL, .rLL, .LLR {
+	border-left:1px solid double #000;
+}
+
+td.cLL {
+	border-left:1px solid #000;
+}
+
+table.tabular td.l, td.lL, td.lR {
+	text-align:	left;
+}
+*/
+/*table.tabular tr.t {
+    border-top:1px solid #000;
+}
+table.tabular tr.b {
+    border-bottom:1px solid #000;
+}
+table.tabular tr.tb {
+    border-top:1px solid #000;
+    border-bottom:1px solid #000;
+}
+table.tabular tr.tt {
+    border-top:1px solid double #000;
+}
+table.tabular tr.bb {
+    border-bottom: 1px solid double #000;
+}
+*/
+/*table.tabular td.c {
+	text-align: center;
+}
+table.tabular td.l {
+	text-align: left;
+}
+table.tabular td.r {
+	text-align: right;
+}
+*/
+table.exercises td {
+    border:1px solid #000;
+}
+table.exercises {
+    border:1px solid #000;
+}
+
+
+
+/* borders and padding */
+
+.table, .figure{
+    /* border:1px solid #000; */
+    padding: 5px 1px;
+}
+.definition, .lemma, .theorem, .proposition, .corollary, .remark, .example {
+    /* border:1px solid #000; */
+    padding: 5px 1px;
+}
+
+.exercise, .quiz, .answerbox {
+    /* border:1px solid #000; */
+    padding: 5px 1px;
+}
+
+.proof, .solution, .answer, .hint {
+    /* border:1px solid #000; */
+    padding: 1px;
+    padding-left:5px;
+}
+
+
+.figure {
+    border:1px solid #000;
+    padding:3px;
+}
+
+ul.bibliography {
+    list-style-type: none;
+}
+

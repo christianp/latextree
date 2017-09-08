@@ -1,0 +1,168 @@
+/* colour.css for camel project */
+/* 
+#A60514    red
+#D7D9F7    lilac
+#4C50CB    puce
+#E9F9ED	pale green
+#FFFFE0	pale yellow
+#E6EDF5	pale mauve
+#6AA7EA    nice blue 
+*/
+
+/* fonts */
+#header {
+    background:#D7D9F7;
+}
+#nav-global {
+    font-family:"Trebuchet MS",sans-serif;
+}
+#breadcrumbs {
+    font:italic 90%/1.2em "Trebuchet MS", sans-serif;
+}
+#browse-horizontal {
+    font:italic 90%/1.2em "Trebuchet MS",sans-serif;
+}
+
+h1,h2,h3,h4 {
+    font-family:"Trebuchet MS",sans-serif;
+    font-weight:bold;
+}
+
+.sidebar blockquote p {
+    font:italic 175%/1.2em "Trebuchet MS",sans-serif;
+}
+
+.sidebar blockquote cite {
+    display:block;
+    font-style:normal;
+    line-height:1.2em;
+    margin-top:-.8em;
+}
+
+/* colours */
+hr {
+	color:black;
+}
+
+
+/* blocks */
+#container {
+    background-color:#e9f9ed;
+}
+body {
+    background:#e9f9ed;
+}
+#breadcrumbs {
+    background:#D7D9F7;
+}
+#columnwrap {
+    background:white;
+}
+#content-main {
+    background:white; 
+    color:black;
+}
+#content-secondary {
+    background:#D7D9F7;
+    color:black;
+}
+#browse-horizontal {
+    background:#D7D9F7;
+    color:black;
+}
+#footer {
+    color:#487858;
+}
+
+.sidebar {
+    background-color:#D7D9F7;
+    color:black;
+}
+.sidebar blockquote p {
+    color:#94da3a;
+}
+.sidebar blockquote cite {
+    color:#94da3a;
+}
+
+
+/* content-main headings */
+#content-main h3 {
+	background:#E6EDF5F5; /* palemauve */
+    color:black;
+}
+#content-main h2 {
+	background:#E9F9ED; /* palegreen */
+    color:black;
+}
+#content-main h1 {
+	background:#FFFFE0; /* paleyellow */
+    color:black;
+}
+
+/* content-secondary headings*/
+#content-secondary h2, #content-secondary h3 {
+    color:black;
+}
+
+/* sidebar headings */
+.sidebar h2, .sidebar h3 {
+    color:black;
+}
+
+/* footer */
+#footer {
+    color:#487858;
+}
+
+/* hyperlinks */
+a:link, a:visited { 
+    color:#a60514; 
+    text-decoration: none;
+}
+#nav-global a {
+    background:#D7D9F7; /* same as header background */
+}
+#content-main a:link, #content-main a:visited {
+    color:#a60514;
+    text-decoration:underline;
+}
+#content-secondary a:link, #content-secondary a:visited {
+    color:#a60514;
+    text-decoration:none;
+}
+#browse-horizontal a:link, #browse-horizontal a:visited, #content-related a:link, #content-related a:visited {
+    color:#a60514;
+    text-decoration:none;
+}
+
+/* hover */
+a:hover {
+    color:#4c50cb; 
+    text-decoration: none;
+}
+#nav-global a:hover {
+    color:#4c50cb;
+}
+#content-main a:hover {
+    color:blue;
+    text-decoration:none;
+}
+#content-main a:hover {
+    color:black;
+    text-decoration:none;
+}
+#content-secondary a:hover {
+    background:none;
+    color:#4c50cb;
+}
+#content-related a:hover, #browse-horizontal a:hover {
+    background:none;
+    color:#4c50cb;
+}
+#footer a:hover {
+    color:#4c50cb;
+    text-decorationtion:none;
+}
+
+

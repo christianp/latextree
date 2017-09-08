@@ -1,0 +1,227 @@
+<html>
+
+    <head>
+		
+		<link rel="shortcut icon" href="static/img/camel_logo.png" />
+		
+                <link rel="stylesheet" type="text/css" href="static/css/latex2web.css"/>
+
+
+	
+
+<!-- load mathjax config **before** MathJax.js -->
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+    	extensions: ["tex2jax.js"],
+    	jax: ["input/TeX", "output/HTML-CSS"],
+    	tex2jax: {
+      	  	inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      	  	displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      	  	processEscapes: true
+    	},
+    	TeX: {
+			equationNumbers: { 
+				autoNumber: "AMS",
+				formatNumber: function (n) { return n }
+			},
+			Macros: {
+				RR: "{\\bf R}",
+				pounds: '{\\unicode{xA3}}',
+			}
+    },
+    "HTML-CSS": {
+		availableFonts: ["TeX"],
+		linebreaks: { 
+			automatic: true, 
+			width: "container"
+		}
+	 }
+  });
+</script>
+
+<!--script src="static/Mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+	
+
+<script type="text/javascript" 
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+</script>
+
+<script type="text/javascript" src="static/js/showhide.js"></script>
+ 
+		<title>Test Book for the LatexTree Package</title>
+   
+     </head>
+	
+<body>
+	<div class="macros">
+			\(\renewcommand{\thetheorem}{\arabic{chapter}.\arabic{theorem}}\)
+			\(\renewcommand{\emph}[1]{\textbf{#1}}\)
+			\(\newcommand{\N}{\mathbb{N}}\)
+			\(\newcommand{\Z}{\mathbb{Z}}\)
+			\(\newcommand{\R}{\mathbb{R}}\)
+			\(\newcommand{\C}{\mathbb{C}}\)
+			\(\newcommand{\prob}{\mathbb{P}}\)
+			\(\newcommand{\expe}{\mathbb{E}}\)
+			\(\newcommand{\var}{\text{Var}}\)
+			\(\newcommand{\cov}{\text{Cov}}\)
+			\(\newcommand{\includevideo{}}[2]{[}\)
+			\(\renewcommand{\arraystretch}{1.3}\)
+	</div>
+	
+<div id="container" style="min-height:500px;">
+
+	<div id="institution">
+	
+	</div>
+	<div id="breadcrumbs">
+	    <a href="index.html">Test Book for the LatexTree Package</a>
+
+&gt;<a href="ch03sec00.html"><span class="chapter_title">
+Mathematics	</span></a>	</div>
+	<div id="columnwrap">
+		
+		<div id="content-main">
+	
+
+				<h1>3.&nbsp;<span class="chapter_title">
+Mathematics	</span></h1>
+<br/>Note: MathJax refuses to display two equations with the same label on the same page.<br/><div class="unlisted"><div class="comment"></div></div>		<h2 class="section">Equations</h2>
+<br/>An inline equation: $\sum_{n=1}^{\infty} a_n = 1$.<br/>An <span class="texttt">equation</span> environment:
+<div class="equation">
+       \begin{equation}\sum_{n=1}^{\infty} a_n = 1.
+\end{equation}
+    </div><br/>An <span class="texttt">equation*</span> environment:
+<div class="equation*">
+       \begin{equation*}\sum_{n=1}^{\infty}\frac{1}{n^2} = \frac{\pi^2}{6}.
+\end{equation*}
+    </div><br/>A <span class="texttt">displaymath</span> environment:<div class="unlisted"><div class="comment"></div></div><div class="displaymath">
+       \[
+x = \frac{-b\pm\sqrt{b^2-4ac}}{2a}.
+\]
+    </div><br/>A <span class="texttt">displaymath</span> environment containing a <span class="texttt">text</span> macro, which itself contains mathmode:
+<div class="displaymath">
+       \[
+E=mc^2 \text{ where $c$ is the speed of light}.
+\]
+    </div><br/><div class="unlisted"><div class="comment"></div></div><br/><div class="unlisted"><div class="comment"></div></div>		<h2 class="section">Labelled equations</h2>
+<br/>
+An equation with a label:
+<div class="equation">
+       \begin{equation}\label{eq:euler}
+e^{i\pi}+1=0.
+\end{equation}
+    </div><br/>Equation -		<span class="eqref">\eqref{eq:euler}</span>
+- is due to Euler.<br/>An <span class="texttt">align</span> environment:
+<div class="align">
+       \begin{align}\label{eq:ellipse}
+x & = a\sin\theta\\
+y & = b\cos\theta\end{align}
+    </div><br/><br/>
+An <span class="texttt">align*</span> environment:
+<div class="align*">
+       \begin{align*}
+x & = a\sin\theta\\
+y & = b\cos\theta\end{align*}
+    </div><br/><div class="unlisted"><div class="comment"></div></div><div class="unlisted"><div class="comment"></div></div><div class="unlisted"><div class="comment"></div></div><div class="unlisted"><div class="comment"></div></div><div class="unlisted"><div class="comment"></div></div><div class="unlisted"><div class="comment"></div></div><br/><br/>
+An <span class="tt">equation</span> containing three <span class="tt">pmatrix</span> environments:
+<div class="equation">
+       \begin{equation}\begin{pmatrix}0 & 1 \\ 1 & 0\end{pmatrix}\qquad\begin{pmatrix}0 & -i \\ i & 0\end{pmatrix}\qquad\begin{pmatrix}1 & 0 \\ 0 & -1\end{pmatrix}\end{equation}
+    </div><br/>A displayed equation using double-dollars:
+<div class="displaymath">
+       \[
+F = ma
+\]
+    </div><span class="tt">LatexTree</span> deals with these during pre-processing.
+<div class="unlisted"><div class="endinput"></div></div><br/><div class="unlisted"><div class="comment"></div></div><br/>
+			
+
+        	<br/>
+        	<br/>
+			<div id="browse-horizontal">
+<p class="left">
+        <a href="ch02sec00.html">
+            &larr;&nbsp;
+2.<span class="chapter_title">
+Lists	</span>        </a>
+</p>
+<p class="right">
+        <a href="ch04sec00.html">4.<span class="chapter_title">
+Theorems	</span>            &nbsp;&rarr;
+        </a>
+</p>
+<div style="clear: both;"></div>        	</div>
+
+    	
+		</div>
+
+    	<div id="content-related", class="sidebar">
+	<h2 style="text-align:center;"><a href="index.html">Test Book for the LatexTree Package</a></h2>
+		<h3>Chapters</h3>
+   
+			<p>
+				<a href="ch01sec00.html">
+				1.&nbsp;
+<span class="chapter_title", id="ch:levels">
+Levels and Headings	</span>				</a>
+			</p>
+   
+			<p>
+				<a href="ch02sec00.html">
+				2.&nbsp;
+<span class="chapter_title">
+Lists	</span>				</a>
+			</p>
+   
+			<p>
+				3.&nbsp;
+<span class="chapter_title">
+Mathematics	</span>			</p>
+   
+			<p>
+				<a href="ch04sec00.html">
+				4.&nbsp;
+<span class="chapter_title">
+Theorems	</span>				</a>
+			</p>
+   
+			<p>
+				<a href="ch05sec00.html">
+				5.&nbsp;
+<span class="chapter_title">
+Text Processing	</span>				</a>
+			</p>
+   
+			<p>
+				<a href="ch06sec00.html">
+				6.&nbsp;
+<span class="chapter_title">
+Tables	</span>				</a>
+			</p>
+   
+			<p>
+				<a href="ch07sec00.html">
+				7.&nbsp;
+<span class="chapter_title">
+Images and Video	</span>				</a>
+			</p>
+   
+			<p>
+				<a href="ch08sec00.html">
+				8.&nbsp;
+<span class="chapter_title", id="ch:links">
+Links	</span>				</a>
+			</p>
+		<p><a href="bibliography.html">
+			Bibliography
+		</a></p>
+        </div>
+    </div>
+
+    <div id="footer">
+        Generated by LatexTree (Cardiff University 2017)
+    </div>
+</div>
+
+</body>
+</html>

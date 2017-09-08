@@ -1,0 +1,21 @@
+{% if chapters %}
+	{% for chap in chapters %}
+		{% with title=chap.get_title_node() %}   
+			<p>
+			{% if chap != chapter %}
+				<a href="{{ page_urls[chap] }}">
+			{% endif %}
+				{{ chap.number }}.&nbsp;
+                {% include "title.html" %}
+			{% if chap != chapter %}
+				</a>
+			{% endif %}
+			</p>
+		{% endwith %}
+	{% endfor %}
+	{% if bibliography %}
+		<p><a href="{{ page_urls[bibliography] }}">
+			Bibliography
+		</a></p>
+	{% endif %}
+{% endif %}

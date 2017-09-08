@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+
+{% block styles %}
+    {{ super() }}
+{% endblock %}
+
+{% block title %}
+	{% if doc.preamble.title %} 
+		<title>{{ doc.preamble.title }}</title>
+	{% endif %}
+{% endblock %}
+
+{% block macros %}
+	<div class="macros">
+	{% if doc.preamble.newcommands %}
+		{% for cmd in doc.preamble.newcommands %}
+			\({{ cmd | safe }}\)
+		{% endfor %}
+	{% endif %}
+	</div>
+{% endblock %}
+
+{% block institution %}
+	{{ doc.preamble.institution }}
+{% endblock %}
+
+{% block breadcrumbs %}
+	{% if doc.preamble.modulecode %} {{ doc.preamble.modulecode }}&nbsp;&gt; {% endif %}
+    <a href="index.html">{{ doc.preamble.title }}</a>
+{% endblock %}
+
+{% block content_main %}
+	<h1 class="booktitle">
+	<table>
+		<tr><th align="left">Title</th><td>{{ doc.preamble.title }}</td></tr>
+		{% if doc.preamble.author %}<tr><th align="left">Author</th><td>{{ doc.preamble.author }}</td></tr>{% endif %}
+		{% if doc.preamble.date %}<tr><th align="left">Date</th><td>{{ doc.preamble.date }}</td></tr>{% endif %}
+	</table>
+	</h1>
+
+	{# preface #}
+	{% for child in doc.root.children recursive %}
+		{% if child.get_species() not in ["chapter", "section", "bibliography"] %}
+			{% with node = child %}{% include "node.html" %}{% endwith %}
+		{% endif %}
+	{% endfor %}
+
+
+	{% if chapters %}
+		<h2>Chapters</h2>
+		{% include "toc.html" %}
+	{% endif %}
+
+	{% if not chapters and sections %}
+		<h2>Sections</h2>
+		{% include "chapter_toc.html" %}
+	{% endif %}
+
+	{% if not chapters and not sections %}
+		<h3>References</h2>
+		{% include "bibliography.html" %}
+	{% endif %}
+
+{% endblock %}
+
+{% block sidebar %}
+	{% if chapters or sections %}
+	<h2 style="text-align:center;"><a href="index.html">{{ doc.preamble.title }}</a></h2>
+		{% if sections %}
+			<h3>Sections</h3>
+			{% include "chapter_toc.html" %}
+		{% endif %}
+		{% if chapters %}
+			<h3>Chapters</h3>
+			{% include "toc.html" %}
+		{% endif %}
+	{% endif %}
+{% endblock %}
+
+
+{% block browse_horizontal %}
+	{% include "browse_horizontal.html" %}
+{% endblock %}
+
+
+
+
+
+
+

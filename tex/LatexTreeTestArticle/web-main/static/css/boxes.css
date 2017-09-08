@@ -1,0 +1,82 @@
+/* layout.css for camel project */
+
+/* Layout:
+head:
+    style, 
+    scripts
+    title
+body:
+  container
+	breadcrumbs
+	columnwrap
+		content-main
+			browse-horizontal
+			content-secondary
+		sidebar
+	footer
+*/
+
+
+#institution {
+    border-top:1px solid #000;
+    border-left:1px solid #000;
+    border-right:1px solid #000;
+}
+
+#breadcrumbs {
+    border-top:1px solid #000;
+    border-left:1px solid #000;
+    border-right:1px solid #000;
+/*    border-bottom:1px solid #000;*/
+}
+
+#columnwrap {
+    border:1px solid #000;
+}
+
+/*#content-main {
+    border:1px solid #000;
+}
+*/
+/*#content-related {
+    border:1px solid #000;
+}
+*/
+/* putting a border around content-main makes the sidebar slip off! */
+
+#content-main {
+    border-right:1px solid #000;
+}
+
+/*
+.sidebar {
+    border-left:1px solid #000;
+}
+*/
+
+/*
+#content-secondary {
+    border-top:1px solid #000;
+    border-right:1px solid #000;
+}
+*/
+
+#browse-horizontal {
+    border:1px solid #000;
+}
+
+#content-main h1.booktitle {
+    border:1px solid #000;
+}
+
+#footer {
+}
+
+/*
+h1, h2, h3, h4, h5 {
+    border:1px solid #000;
+}
+*/
+
+
+

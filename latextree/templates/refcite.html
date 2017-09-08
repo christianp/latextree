@@ -1,0 +1,43 @@
+{%- if node.get_genus() == "href" -%}
+	<a href="{{ node.content | safe }}">
+        {%- if node.children -%}
+            {{ loop(node.children) }}
+        {%- else -%}
+            {{ node.content }}
+        {%- endif -%}
+    </a>
+{%- endif -%}
+
+{%- if node.get_genus() == "xref" -%}
+	{%- if doc.xrefs and node.content in doc.xrefs -%}
+
+		<a href="{{ xref_urls[node.content] | safe }}">
+		{%- set target = doc.xrefs[node.content] -%}
+        {%- set pchap = target.get_enclosing_chapter() %}
+		{%- set chapno = '' -%}
+		{% if not target.get_species() == "chapter" %}
+			{%- set chapno = pchap.number -%}
+		{%- endif -%}
+        
+		{%- if node.get_species() == "ref" -%}
+			{%- if chapno -%}{{ chapno }}.{%- endif -%}{{ target.number }}
+        
+		{%- elif node.get_species() == "autoref" -%}
+            {{ target.get_species() | title }}&nbsp;{%- if chapno -%}{{ chapno }}.{%- endif -%}{{ target.number }}
+	    
+		{%- elif node.get_species() == "nameref" -%}
+            {%- with title = target.get_title_node() -%}
+				{%- include "title.html" -%}
+            {%- endwith -%}
+	    
+		{%- elif node.get_species() == "cite" -%}
+            {%- set harvard = target.harvard_dict() -%}
+            {{ harvard.citation }}
+	    
+		{%- else -%}
+            {%- if chapno -%}{{ chapno }}.{%- endif -%}{{ target.number }}
+	    
+		{%- endif -%}
+        </a>
+	{%- endif -%}
+{%- endif -%}

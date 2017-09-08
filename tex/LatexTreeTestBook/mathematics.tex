@@ -1,0 +1,81 @@
+% !TEX root = main.tex
+
+\chapter{Mathematics}
+
+Note: MathJax refuses to display two equations with the same label on the same page. 
+
+%--------------------
+\section*{Equations}
+
+An inline equation: $\sum_{n=1}^{\infty} a_n = 1$.
+
+An \texttt{equation} environment:
+\begin{equation}
+\sum_{n=1}^{\infty} a_n = 1.
+\end{equation}
+
+An \texttt{equation*} environment:
+\begin{equation*}
+\sum_{n=1}^{\infty}\frac{1}{n^2} = \frac{\pi^2}{6}.
+\end{equation*}
+
+A \texttt{displaymath} environment:% using \texttt{\textbackslash[} and \texttt{\textbackslash]}:
+\[
+x = \frac{-b\pm\sqrt{b^2-4ac}}{2a}.
+\]
+
+A \texttt{displaymath} environment containing a \texttt{text} macro, which itself contains mathmode:
+\[
+E=mc^2 \text{ where $c$ is the speed of light}.
+\]
+
+%The quadratic formula shown inline: $x = \frac{-b\pm\sqrt{b^2-4ac}}{2a}$. 
+
+%--------------------
+\section*{Labelled equations}
+
+
+An equation with a label:
+\begin{equation}\label{eq:euler}
+e^{i\pi}+1=0.
+\end{equation}
+
+Equation -\eqref{eq:euler}- is due to Euler.
+
+An \texttt{align} environment:
+\begin{align}\label{eq:ellipse}
+x & = a\sin\theta \\
+y & = b\cos\theta
+\end{align}
+
+\bigskip
+An \texttt{align*} environment:
+\begin{align*}
+x & = a\sin\theta \\
+y & = b\cos\theta
+\end{align*}
+
+%\bigskip
+%A labelled \texttt{equation} environment:
+%\begin{equation}\label{eq:einstein}
+%E = mc^2
+%\end{equation}
+%Equation -\eqref{eq:einstein}- is due to AE. 
+
+\bigskip
+An {\tt equation} containing three {\tt pmatrix} environments:
+\begin{equation}
+\begin{pmatrix}0 & 1 \\ 1 & 0\end{pmatrix}
+\qquad
+\begin{pmatrix}0 & -i \\ i & 0\end{pmatrix}
+\qquad
+\begin{pmatrix}1 & 0 \\ 0 & -1\end{pmatrix}
+\end{equation}
+
+A displayed equation using double-dollars:
+$$
+F = ma
+$$
+{\tt LatexTree} deals with these during pre-processing.
+\endinput
+

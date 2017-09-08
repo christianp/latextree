@@ -1,0 +1,23 @@
+{% extends "index.html" %}
+
+{% block breadcrumbs %}
+	{{ super() }}&gt; 
+	<a href="{{ page_urls[bibliography] }}">Bibliography<a>
+{% endblock %}
+
+{% block content_main %}
+	<div class="macros">
+	    \( {{ newcommands | safe }} \)
+	</div>
+
+    {% if doc.preamble.documentclass == "article" %}
+        <h1 class="section">References</h1>
+    {% else %}
+        <h1 class="chapter">Bibliography</h1>
+    {% endif %}
+    
+	{% include "bibliography.html" %}
+
+{% endblock %}
+
+

@@ -1,0 +1,42 @@
+% !TEX root = main.tex
+
+%--------------------
+\chapter{Links}\label{ch:links}
+
+Here is a labelled theorem containing a labelled equation.
+\begin{theorem}[Pythagoras' Theorem]\label{thm:pythagoras}
+\begin{equation}\label{eq:pythagoras}
+a^2 + b^2 = c^2.
+\end{equation}
+\end{theorem}
+
+%\begin{lemma}
+%Statement of lemma.
+%\end{lemma}
+%\begin{corollary}
+%Statement of corollary.
+%\end{corollary}
+
+%Labels are attached to the parent node. Any second label will overwrite the first.
+\begin{itemize}
+\item Chapter~\ref{ch:levels} is the levels chapter.
+\item Chapter~\ref{ch:links} involves a reference to the current chapter.
+\item Theorem~\ref{thm:pythagoras} involves a reference to the previous theorem.
+\item Here is a ref -\ref{ch:levels}- to the levels chapter.
+\item Here is a ref -\ref{ch:links}- to the current chapter.
+\item Here is a ref -\ref{thm:pythagoras}- to the above theorem.
+\item Here is an eqref -\eqref{eq:pythagoras}- to the equation in the above theorem.
+\item Here is a citation -\cite{grimmett01}- to a bibtex entry.
+\item Here is a url: -\url{http://www.bbc.co.uk/}-.
+\item Here is some -\href{http://www.bbc.co.uk/}{hyperlinked text}-.
+\item Here is a -\hyperref[ch:intro]{named cross-reference}- to the introduction.
+\item here is an autoref -\autoref{ch:levels}- to the levels chapter.
+\item Here is a nameref -\nameref{ch:levels}- to the levels chapter.
+\item Here is a pageref -\pageref{ch:levels}- to the levels chapter.
+\end{itemize}
+
+\subsection*{Document-level labels}
+For a viewable links to the document-level label we need to use the \texttt{hyperref} command as follows: -\hyperref[book:cameltest]{hello}-. There is no number or title associated with the document-level so other xref commands don't know what to display. Document-level labels might be useful to organise documents within and across modules.
+
+\endinput
+

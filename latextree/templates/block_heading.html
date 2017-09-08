@@ -1,0 +1,17 @@
+<div class="blockheading"> 
+    {{ node.get_species() | title }}&nbsp;
+    {%- if node.number  -%}
+		{%- if chapter -%}{{ chapter.number }}.{%- endif -%}{{ node.number }}&nbsp;
+	{%- endif -%}
+	{% set title = node.get_title_node() %}
+    {%- if title -%}
+         <span class="blocktitle">{% include "title.html" %}</span>
+    {%- else -%}
+		{% set caption = node.get_caption_node() %}
+		{% if caption %}
+			{% with title = caption %}
+				 <span class="caption">{% include "title.html" %}</span>
+			{% endwith %}
+		{% endif %}
+    {%- endif -%}
+</div>
