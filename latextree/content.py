@@ -3,10 +3,10 @@ content.py
 Content nodes for LatexTree objects
 """
 
-from node import LatexTreeNode
+from .node import LatexTreeNode
 
 class Content(LatexTreeNode):
-    '''
+    r'''
     Abstract class for content nodes.
     
     Media (content=`src`): from \includevideo{src}
@@ -192,14 +192,14 @@ class LatexTreeLink(LatexTreeNode):
 
 #------------------------------------------------
 def main():
-    print "content.py"
+    print("content.py")
     
     mama = LatexTreeNode()
     c1 = Text(text='hello ')
     c2 = Latex(latex=r'$\alpha+\beta$')
     c3 = Text(text=' goodbye.')
     mama.children = [c1, c2, c3]
-    print mama.show()
+    print(mama.show())
       
 if __name__ == '__main__':
     main()

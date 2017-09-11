@@ -49,7 +49,7 @@ mathjax_config  = '''
     '''
 
 if __name__ == '__main__':
-    print BASE_DIR
-    print STATIC_ROOT
-    print TEMPLATE_ROOT
-    print LATEX_ROOT
+    print(BASE_DIR)
+    print(STATIC_ROOT)
+    print(TEMPLATE_ROOT)
+    print(LATEX_ROOT)

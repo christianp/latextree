@@ -70,15 +70,15 @@ from pylatexenc.latexwalker import (
     LatexGroupNode
 )
 
-import walker
-import taxonomy as tax
+from . import walker
+from . import taxonomy as tax
 
-from node import LatexTreeNode, Macro, Environment, Switch
-from content import Content, Xref, Url, Image, Media, Latex, Comment, Text, Points
-from factory import ClassFactory, NodeFactory
-from tabular import Tabular, Row, Cell
-from bibliography import Bibliography
-from document import LatexDocument
+from .node import LatexTreeNode, Macro, Environment, Switch
+from .content import Content, Xref, Url, Image, Media, Latex, Comment, Text, Points
+from .factory import ClassFactory, NodeFactory
+from .tabular import Tabular, Row, Cell
+from .bibliography import Bibliography
+from .document import LatexDocument
 
 import logging
 logger = logging.getLogger(__name__)
@@ -667,7 +667,7 @@ class LatexParser(object):
             # elif (walker_nodelist[idx].isNodeType(LatexMacroNode) and
             #         walker_nodelist[idx].macroname in tax.switches):
             #     switchname = walker_nodelist[idx].macroname
-            #     print '***********************%s' % walker_nodelist[idx].macroname
+            #     print('***********************%s' % walker_nodelist[idx].macroname)
             
             # otherwise just take next one
             else:
@@ -735,7 +735,7 @@ class LatexParser(object):
         The parse_latex_document function bypasses this function and 
         creates the root node according to \documentclass (Article, Book etc.)
         '''
-        from preprocessor import LatexPreProcessor
+        from .preprocessor import LatexPreProcessor
         pp = LatexPreProcessor()
         text = pp.preprocess(text)
         walker_nodes = walker.parse(text)
@@ -753,7 +753,7 @@ class LatexParser(object):
         '''        
         #--------------------
         # preprocess
-        from preprocessor import LatexPreProcessor
+        from .preprocessor import LatexPreProcessor
         pp = LatexPreProcessor()
         text = pp.preprocess(text)
 
@@ -827,7 +827,7 @@ class LatexParser(object):
         filename = os.path.abspath(filename) if filename else None
         if filename:
             self.filename = filename
-            import reader
+            from . import reader
             text = reader.read_latex_document(filename)
             doc = self.parse_latex_document(text, **kwargs)
             doc.head['filename'] = filename
@@ -968,29 +968,29 @@ def main(args=None):
     pa = LatexParser()
     
     for idx, text in enumerate(tests):
-        print '=================================='
-        print 'TEST %d' % idx
+        print('==================================')
+        print('TEST %d' % idx)
         root = pa.parse_latex(text,
                 insert_strict_braces=True,
                 non_breaking_spaces=True,
             )
 
-        print '------------------------'
+        print('------------------------')
         from lxml import etree
-        print etree.tostring(root.get_xml(), pretty_print=True)
+        print(etree.tostring(root.get_xml(), pretty_print=True))
         # from lxml.html import tostring
-        # print tostring(root.get_xml(), pretty_print=True)
-        print '------------------------'
-        print root.children
-        print '------------------------'
+        # print(tostring(root.get_xml(), pretty_print=True))
+        print('------------------------')
+        print(root.children)
+        print('------------------------')
         text2 = root.get_latex()
         text  = ''.join([x.strip() for x in text.split('\n')])
         text2  = ''.join([x.strip() for x in text2.split('\n')])
-        print text
-        print '--------------'
-        print text2
-        print text == text2
-        print '--------------'
+        print(text)
+        print('--------------')
+        print(text2)
+        print(text == text2)
+        print('--------------')
 
 
     return None
@@ -1009,18 +1009,18 @@ def main(args=None):
 
     # xml output
     from lxml import etree
-    print etree.tostring(doc.root.get_xml(), pretty_print=True)
+    print(etree.tostring(doc.root.get_xml(), pretty_print=True))
 
     # info
-    print '--------------------'
-    print doc.preamble
-    print '--------------------'
-    print doc.xrefs
-    print '--------------------'
-    print doc.images
-    print '--------------------'
-    print doc.root.get_phenotypes('figure')
-    print '--------------------'
+    print('--------------------')
+    print(doc.preamble)
+    print('--------------------')
+    print(doc.xrefs)
+    print('--------------------')
+    print(doc.images)
+    print('--------------------')
+    print(doc.root.get_phenotypes('figure'))
+    print('--------------------')
 
 
 if __name__ == '__main__':

@@ -13,6 +13,7 @@ setup(name='latextree',
         'pylatexenc',
         'bibtexparser',
         'lxml',
+        'six',
     ],
     entry_points = {
         'console_scripts': ['ltree=latextree.ltree:main'],

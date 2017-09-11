@@ -58,7 +58,7 @@ class LatexPreProcessor(object):
             idx = match.end()
             if text[idx] != '{':
                 logger.error('The first character should be a "{"')
-                print 'First character should be a "{" at position %s' % idx
+                print('First character should be a "{" at position %s' % idx)
                 continue
 
             # find the closing brace
@@ -123,7 +123,7 @@ def main(args=None):
     '''
 #    # parse to create LatexTree
     pp = LatexPreProcessor()
-    print pp.expand_defs(s)
+    print(pp.expand_defs(s))
     
 if __name__ == '__main__':
     main()

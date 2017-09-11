@@ -9,9 +9,9 @@ We use NodeFactory for unlisted fields
 
 import re, bibtexparser
 
-from factory import NodeFactory
-from node import LatexTreeNode
-from content import Text
+from .factory import NodeFactory
+from .node import LatexTreeNode
+from .content import Text
 
 class BibItem(LatexTreeNode):
 
@@ -113,12 +113,12 @@ def main(args=None):
         text = bibtex_file.read()
         
     bib = Bibliography(text)
-    print bib.harvard()
+    print(bib.harvard())
       
     # xml output
     from lxml import etree
     bibx = bib.xml() 
-    print etree.tostring(bibx, pretty_print=True)
+    print(etree.tostring(bibx, pretty_print=True))
 
 if __name__ == '__main__':
     main()

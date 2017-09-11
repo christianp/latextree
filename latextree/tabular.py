@@ -3,8 +3,8 @@ tabular.py
 We deal with tabular environments directly (rather than via latexwalker
 """
 
-import walker
-from node import LatexTreeNode
+from . import walker
+from .node import LatexTreeNode
 
 import logging
 logger = logging.getLogger(__name__)
@@ -111,7 +111,7 @@ def main(args=None):
     # not being parsed as attributes. The LatexTreeNode.get_xml()
     # function will have to be expanded. It was only a quick hack anyway!
     from lxml import etree
-    print etree.tostring(tab.get_xml(), pretty_print=True)
+    print(etree.tostring(tab.get_xml(), pretty_print=True))
     
 if __name__ == '__main__':
     main()

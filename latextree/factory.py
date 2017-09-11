@@ -4,7 +4,7 @@ Created on Thu Apr 27 07:02:26 2017
 @author: scmde
 """
 
-from node import LatexTreeNode
+from .node import LatexTreeNode
   
 def ClassFactory(name, argnames, BaseClass=LatexTreeNode):
     '''
@@ -44,9 +44,9 @@ def main():
     classes.update(environment_classes)
     classes.update(switch_classes)
 
-    print classes
-    print abstract_switch_classes
-    print switch_classes
+    print(classes)
+    print(abstract_switch_classes)
+    print(switch_classes)
     
 
 if __name__ == '__main__':

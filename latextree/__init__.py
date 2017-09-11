@@ -20,8 +20,8 @@ __version__ = '0.1'
 
 import sys
 
-from document import LatexDocument
-from parser import LatexParser
+from .document import LatexDocument
+from .parser import LatexParser
 
 def load(latex_file, parser=None):
     """

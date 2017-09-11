@@ -8,7 +8,7 @@ Families are subclassed into genera: Level, List, etc.
 Genera are subclassed into species: Chapter, Section etc. or Itemize, Enumerate, etc.
 """
 
-import taxonomy as tax
+from . import taxonomy as tax
 
 import logging
 logger = logging.getLogger(__name__)
@@ -436,7 +436,7 @@ class Switch(LatexTreeNode):
             
 #------------------------------------------------
 def main(args=None):
-    print "node.py"
+    print("node.py")
     root = LatexTreeNode()
     n1 = LatexTreeNode()
     n1.number = 5
@@ -452,16 +452,16 @@ def main(args=None):
     n2.title = n3
     from lxml import etree
     xtree = root.get_xml()
-    print etree.tostring(xtree, pretty_print=True)
+    print(etree.tostring(xtree, pretty_print=True))
     xrefs = root.get_xref_dict()
-    print xrefs
+    print(xrefs)
     root.set_numbers()
     root.set_titles()
     
-    print tax.switch_species
-    print n1.get_species()
-    print n1.get_genus()
-    print n1.get_family()
+    print(tax.switch_species)
+    print(n1.get_species())
+    print(n1.get_genus())
+    print(n1.get_family())
     
 if __name__ == '__main__':
 #    import logging.config

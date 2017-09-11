@@ -24,7 +24,7 @@ Example
 import os
 from jinja2 import Environment, FileSystemLoader
 
-import settings
+from . import settings
 
 import logging
 logger = logging.getLogger(__name__)
@@ -217,7 +217,7 @@ class LatexDocument(object):
         output = template.render(context)
         output_file = os.path.join(WEB_ROOT, 'index.html')
         with open(output_file, "wb") as f:
-            f.write(output)
+            f.write(output.encode('utf-8'))
 
         #--------------------------
         # create chapter pages (assumes that chapters are ordered correctly)
@@ -233,7 +233,7 @@ class LatexDocument(object):
             output = template.render(context)
             output_file = os.path.join(WEB_ROOT, make_url(chapter, include_label=False))
             with open(output_file, "wb") as f:
-                f.write(output)
+                f.write(output.encode('utf-8'))
         
         #--------------------------
         # create section pages (assumes that sections are ordered correctly)
@@ -251,7 +251,7 @@ class LatexDocument(object):
                     output = template.render(context)
                     output_file = os.path.join(WEB_ROOT, make_url(section, include_label=False))
                     with open(output_file, "wb") as f:
-                        f.write(output)
+                        f.write(output.encode('utf-8'))
             # if bibliography:
             #     context["prv"] = chapters[-1] if chapters else None
             #     context["nxt"] = None
@@ -269,7 +269,7 @@ class LatexDocument(object):
                 output = template.render(context)
                 output_file = os.path.join(WEB_ROOT, make_url(section, include_label=False))
                 with open(output_file, "wb") as f:
-                    f.write(output)
+                    f.write(output.encode('utf-8'))
             # if bibliography:
             #     context["prv"] = sections[-1] if sections else None
             #     context["nxt"] = None
@@ -291,7 +291,7 @@ class LatexDocument(object):
             output = template.render(context)
             output_file = os.path.join(WEB_ROOT, 'bibliography.html')
             with open(output_file, "wb") as f:
-                f.write(output)
+                f.write(output.encode('utf-8'))
         
         #--------------------------
         # copy static files to WEB_ROOT
@@ -477,7 +477,7 @@ class LatexDocument(object):
                                 
 #------------------------------------------------
 def main():
-    print "latextree.document.py"
+    print("latextree.document.py")
     
     from utils import read_latex_document
     from parser import LatexParser
@@ -534,15 +534,15 @@ def main():
     
     pa = LatexParser()
     for idx, s in enumerate(tests):
-        print '=================================='
-        print 'TEST %d' % idx
+        print('==================================')
+        print('TEST %d' % idx)
         doc = pa.parse_latex_document(s, insert_strict_braces=True, non_breaking_spaces=True)
         from lxml import etree
-        print '------------------------'
-        print etree.tostring(doc.root.get_xml(), pretty_print=True)
-        print '------------------------'
-        print doc.bbq()
-        print '--------------------'
+        print('------------------------')
+        print(etree.tostring(doc.root.get_xml(), pretty_print=True))
+        print('------------------------')
+        print(doc.bbq())
+        print('--------------------')
 
     # return None
 
@@ -556,24 +556,24 @@ def main():
 
     # output
     from lxml import etree
-    print etree.tostring(doc.root.get_xml(), pretty_print=True)
+    print(etree.tostring(doc.root.get_xml(), pretty_print=True))
     # from lxml.html import tostring
-    # print tostring(doc.root.get_xml(), pretty_print=True)
-    # print '--------------------'
-    # print doc.root.show()
-    print '--------------------'
-    print 'Preamble:'
-    print doc.preamble
-    print '--------------------'
-    print 'Blackboard questions:'
-    print doc.bbq()
-    print '--------------------'
-    print 'Labelled nodes:'
-    print doc.xrefs
-    print '--------------------'
-    print 'Website:'
-    print doc.make_website()
-    print '--------------------'
+    # print(tostring(doc.root.get_xml(), pretty_print=True))
+    # print('--------------------')
+    # print(doc.root.show())
+    print('--------------------')
+    print('Preamble:')
+    print(doc.preamble)
+    print('--------------------')
+    print('Blackboard questions:')
+    print(doc.bbq())
+    print('--------------------')
+    print('Labelled nodes:')
+    print(doc.xrefs)
+    print('--------------------')
+    print('Website:')
+    print(doc.make_website())
+    print('--------------------')
     
 if __name__ == '__main__':
     main()

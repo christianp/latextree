@@ -57,12 +57,14 @@ from pylatexenc.latexwalker import (
 
 from pylatexenc.latexwalker import LatexWalker, MacrosDef, LatexWalkerError
 
+from six import string_types
+
 import logging
 log = logging.getLogger(__name__)
 
 # import dispmath environment names
-import taxonomy as tax
-import macrosdef
+from . import taxonomy as tax
+from . import macrosdef
 
 def show_node(node, depth=0):
     '''
@@ -74,19 +76,19 @@ def show_node(node, depth=0):
     
     # non-leaf nodes    
     if type(node) == LatexMacroNode:
-        print istr*depth + 'MACRO: ' + node.macroname
+        print(istr*depth + 'MACRO: ' + node.macroname)
         if node.nodeoptarg:
             show_node(node.nodeoptarg,depth=depth+1)
         for child in node.nodeargs:
             show_node(child,depth=depth+1)
 
     elif type(node) == LatexMathNode:
-        print istr*depth + 'MATH (' + node.displaytype + '): '
+        print(istr*depth + 'MATH (' + node.displaytype + '): ')
         for child in node.nodelist:
             show_node(child,depth=depth+1)
         
     elif type(node) == LatexEnvironmentNode:
-        print istr*depth + 'ENV: ' + node.envname
+        print(istr*depth + 'ENV: ' + node.envname)
         for child in node.nodelist:
             show_node(child,depth=depth+1)
         
@@ -96,15 +98,15 @@ def show_node(node, depth=0):
 
     elif type(node) == LatexCommentNode:
         if not node.comment.isspace():
-            print istr*depth + 'COMMENT: ' + node.comment
+            print(istr*depth + 'COMMENT: ' + node.comment)
         
     elif type(node) == LatexCharsNode:
         if not node.chars.isspace():
-            print istr*depth + 'CHARS: ' + node.chars.strip()
+            print(istr*depth + 'CHARS: ' + node.chars.strip())
         
    # unknown nodes
     elif node != None:
-        print 'NODE TYPE NOT RECOGNISED: %s (%s)' % (str(node), type(node))
+        print('NODE TYPE NOT RECOGNISED: %s (%s)' % (str(node), type(node)))
         
  
 def put_in_braces(brace_char, thestring):
@@ -189,7 +191,7 @@ def macro_node_to_latex(wnode):
         
     # sanity check
     if wnode.macroname == '[':
-        print "THIS SHOULD NOT HAPPEN!"
+        print("THIS SHOULD NOT HAPPEN!")
     
     # set macro name
     macroname = wnode.macroname
@@ -199,7 +201,7 @@ def macro_node_to_latex(wnode):
     braces = '{'*len(wnode.nodeargs)
     if wnode.macroname in macrosdef.macro_dict:
         macro = macrosdef.macro_dict[wnode.macroname]
-        if isinstance(macro.numargs, basestring):
+        if isinstance(macro.numargs, string_types):
             braces = macro.numargs
         elif macro.optarg:
             braces = '{'*macro.numargs
@@ -421,7 +423,7 @@ def parse(text, **kwargs):
 
 #------------------------------------------------
 def main(args=None):
-    print 'walker.py'
+    print('walker.py')
 
     import pprint
     pp = pprint.PrettyPrinter(indent=4)
@@ -576,22 +578,22 @@ def main(args=None):
         
     # iterate over tests    
     for idx, s in enumerate(tests):
-        print '=================================='
-        print 'TEST %d' % idx
-        print s
+        print('==================================')
+        print('TEST %d' % idx)
+        print(s)
         wnodes = parse(s)      
         s2 = nodelist_to_latex(wnodes,
             non_breaking_spaces = False,
             insert_strict_braces = False,
             strict_display_maths = False,
         )        
-        print '------------------------'
-        print wnodes
-        print '------------------------'
-        print s2
-        print '------------------------'
-        print (s == s2)
-        print '------------------------'
+        print('------------------------')
+        print(wnodes)
+        print('------------------------')
+        print(s2)
+        print('------------------------')
+        print((s == s2))
+        print('------------------------')
     
     
     
